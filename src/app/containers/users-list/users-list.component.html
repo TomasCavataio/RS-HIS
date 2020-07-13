@@ -1,0 +1,58 @@
+<div class="mat-elevation-z8">
+
+    <mat-table [dataSource]="users" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="surname">
+            <mat-header-cell *matHeaderCellDef> Surname </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.first_surname}} </mat-cell>
+        </ng-container>
+
+        <!-- Medical board nymber Column -->
+        <ng-container matColumnDef="medicalNumber">
+            <mat-header-cell *matHeaderCellDef> Medical Board Number </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.medical_board_number}} </mat-cell>
+        </ng-container>
+
+        <!-- Medical Clinic History Number -->
+        <ng-container matColumnDef="chn">
+            <mat-header-cell *matHeaderCellDef> CHN </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nhc}} </mat-cell>
+        </ng-container>
+
+        <!-- Edit Option -->
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-fab color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Delete Option -->
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-fab color="warn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['users/', row.id]"></mat-row>
+
+    </mat-table>
+</div>

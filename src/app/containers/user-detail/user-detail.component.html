@@ -1,0 +1,40 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{user.name}}</mat-card-title>
+        <mat-card-subtitle>{{user.first_surname}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table table-hover" aria-describedby="DataTables_Table_0_info">
+            <thead>
+                <tr class="header">
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>Birth-Day</td>
+                    <td>CHN</td>
+                    <td>City</td>
+
+                    <td colspan="2">Acciones</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <ng-container>
+                        <td><i>{{user.nif}}</i></td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.city}}</td>
+                        <td>{{user.birth_date}}</td>
+                        <td>{{user.nhc}}</td>
+                        <td>{{user.postal_code}}</td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
