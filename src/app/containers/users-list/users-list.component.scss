@@ -1,10 +1,33 @@
-mat-header-cell:hover {
-    transition: 0.8s;
-    font-size: initial;
-    color: white;
-}
-mat-cell:hover {
-    transition: 0.8s;
-    font-size: initial;
-    color: white;
+mat-table {
+    min-width: 40em;
+    overflow-x: auto;
+
+    mat-header-cell {
+        font-size: initial;
+        &:hover {
+            transition: 0.8s;
+            font-size: large;
+            color: white;
+            cursor: default;
+        }
+    }
+    mat-row {
+        &:focus {
+            outline: #4caf50 solid 3px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        mat-cell {
+            margin: 0 1%;
+            &:hover {
+                transition: 0.8s;
+                font-size: initial;
+                color: white;
+            }
+        }
+        .edit {
+            margin: 5px;
+        }
+    }
 }

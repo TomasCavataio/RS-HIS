@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,6 +16,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { UserDetailComponent } from './containers/user-detail/user-detail.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { UserCreateComponent } from './containers/user-create/user-create.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatStepperModule } from '@angular/material/stepper';
+
 
 
 @NgModule({
@@ -23,7 +33,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     HeaderComponent,
     FooterComponent,
     UsersListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,15 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatStepperModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

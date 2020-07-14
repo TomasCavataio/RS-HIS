@@ -1,7 +1,15 @@
 .navbar {
-    background-color: purple;
     height: 10%;
     header {
-        margin: 1%;
+        margin: 1em;
+        .newUser {
+            background-color: #00ff82f2;
+            padding: 20px;
+            user-select: none;
+            border-radius: 22px;
+            button {
+                margin-left: 1%;
+            }
+        }
     }
 }

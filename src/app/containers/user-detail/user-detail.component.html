@@ -1,40 +1,96 @@
-<mat-card class="example-card">
+<mat-card class="detail-card">
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{user.name}}</mat-card-title>
-        <mat-card-subtitle>{{user.first_surname}}</mat-card-subtitle>
+        <div class="header">
+            <mat-card-title>{{user.name}}, {{user.first_surname}}</mat-card-title>
+            <mat-card-subtitle>ID: {{user.id}}</mat-card-subtitle>
+        </div>
     </mat-card-header>
     <mat-card-content>
         <table class="table table-hover" aria-describedby="DataTables_Table_0_info">
-            <thead>
-                <tr class="header">
-                    <td>ID</td>
-                    <td>Name</td>
-                    <td>City</td>
-                    <td>Birth-Day</td>
-                    <td>CHN</td>
-                    <td>City</td>
-
-                    <td colspan="2">Acciones</td>
-                </tr>
-            </thead>
-
             <tbody>
                 <tr>
-                    <ng-container>
-                        <td><i>{{user.nif}}</i></td>
-                        <td>{{user.name}}</td>
-                        <td>{{user.city}}</td>
-                        <td>{{user.birth_date}}</td>
-                        <td>{{user.nhc}}</td>
-                        <td>{{user.postal_code}}</td>
-                    </ng-container>
+                    <mat-tab-group dynamicHeight>
+                        <mat-tab label="Personal Information">
+                            <mat-icon>perm_identity</mat-icon>
+                            <div class="example-large-box mat-elevation-z4">
+                <tr class="dataHeader">
+                    <td>Name</td>
+                    <td>Surname</td>
+                    <td *ngIf="user.second_surname != ''">Second Surname</td>
+                    <td>Gender</td>
+                    <td>Birth-Day</td>
                 </tr>
+                <tr class="data">
+                    <td>{{user.name}}</td>
+                    <td>{{user.first_surname}}</td>
+                    <td *ngIf="user.second_surname != ''">{{user.second_surname}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.birth_date}}</td>
+                </tr>
+                </div>
+                </mat-tab>
+                <mat-tab label="Address">
+                    <mat-icon> location_on</mat-icon>
+                    <div class="example-large-box mat-elevation-z4">
+                        <tr class="dataHeader">
+                            <td>City</td>
+                            <td>Address</td>
+                            <td>Door</td>
+                            <td>Postal Code</td>
+                        </tr>
+                        <tr class="data">
+                            <td>{{user.city}}</td>
+                            <td>{{user.street}}, {{user.street_number}}</td>
+                            <td>{{user.door_number}}</td>
+                            <td>{{user.postal_code}}</td>
+                        </tr>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Medical Data">
+                    <mat-icon>favorite_border</mat-icon>
+                    <div class="example-large-box mat-elevation-z4">
+                        <tr class="dataHeader">
+                            <td>User</td>
+                            <td *ngIf="user.medical_board_number != ''">Medical Board Number</td>
+                            <td *ngIf="user.nhc != ''">NHC</td>
+                            <td>Card Number</td>
+                        </tr>
+                        <tr class="data">
+                            <td>{{user.professional_type}}</td>
+                            <td *ngIf="user.medical_board_number != ''">{{user.medical_board_number}}</td>
+                            <td *ngIf="user.nhc != ''">{{user.nhc}}</td>
+                            <td>{{user.card_number}}</td>
+                        </tr>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Insurance">
+                    <mat-icon> attach_money</mat-icon>
+                    <div class="example-large-box mat-elevation-z4">
+                        <tr class="dataHeader">
+                            <td>Insurance Company</td>
+                            <td>Insurance Type</td>
+                        </tr>
+                        <tr class="data">
+                            <td>{{user.insurance_company_name}}</td>
+                            <td>{{user.insurance_type}}</td>
+                        </tr>
+                    </div>
+                </mat-tab>
+                </mat-tab-group>
+                </tr>
+
             </tbody>
         </table>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+    <mat-card-actions class="actions">
+        <button mat-button [routerLink]="'../'">
+            <mat-icon>keyboard_return</mat-icon>
+        </button>
+        <button mat-button>
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="deleteUser(user)">
+            <mat-icon>delete</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

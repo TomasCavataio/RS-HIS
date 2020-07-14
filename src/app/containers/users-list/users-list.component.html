@@ -33,9 +33,9 @@
 
         <!-- Edit Option -->
         <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-            <mat-cell *matCellDef="let element">
-                <button mat-fab color="primary">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell class="edit" *matCellDef="let element">
+                <button mat-fab color="primary" [routerLink]="['users/edit', element.id]">
                     <mat-icon>edit</mat-icon>
                 </button>
             </mat-cell>
@@ -43,16 +43,16 @@
 
         <!-- Delete Option -->
         <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <button mat-fab color="warn">
+                <button (click)="deleteUser(element)" mat-fab color="warn">
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['users/', row.id]"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['./', row.id]"></mat-row>
 
     </mat-table>
 </div>

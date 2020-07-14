@@ -25,8 +25,16 @@ export class UsersListComponent implements OnInit {
     });
   }
 
+  getUsers(): void {
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+    });
+  }
 
-  alert(element): void {
-    console.log(element);
+  deleteUser(user: User): void {
+    const confirmation = confirm(`Confirm that you want ${user.name} ${user.first_surname}, with id: ${user.id} to be deleted`);
+    if (confirmation) {
+      this.userService.deleteUser(user.id).subscribe(() => this.getUsers());
+    }
   }
 }
