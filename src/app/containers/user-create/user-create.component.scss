@@ -2,6 +2,10 @@
 
 form {
     text-align: center;
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+    }
     mat-form-field {
         margin-right: 10%;
         input {

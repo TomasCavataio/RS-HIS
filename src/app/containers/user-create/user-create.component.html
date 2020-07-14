@@ -1,114 +1,166 @@
 <div class="create-form-container">
     <!-- Template Driven Forms -->
     <form #createUser="ngForm">
-        <mat-form-field appearance=" fill">
-            <mat-label>Name</mat-label>
-            <input matInput #name required autocomplete="off">
-        </mat-form-field>
+        <mat-horizontal-stepper #stepper>
+            <mat-step [stepControl]="stepFormGroup">
+                <form [formGroup]="userForm">
+                    <ng-template matStepLabel>Personal Information</ng-template>
+                    <div class="row">
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name" #name required autocomplete="off">
+                            <mat-error
+                                *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">
+                            </mat-error>
+                        </mat-form-field>
 
-        <mat-form-field appearance=" fill">
-            <mat-label>Surname</mat-label>
-            <input matInput #surname required autocomplete="off">
-        </mat-form-field>
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Surname</mat-label>
+                            <input matInput formControlName="surname" #surname required autocomplete="off">
+                            <mat-error
+                                *ngIf="userForm.controls['surname'].invalid && (userForm.controls['surname'].dirty || userForm.controls['surname'].touched)">
+                            </mat-error>
+                        </mat-form-field>
 
-        <mat-form-field appearance=" fill">
-            <mat-label>Second Surname </mat-label>
-            <input matInput #second_surname autocomplete="off">
-        </mat-form-field>
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Second Surname </mat-label>
+                            <input matInput #second_surname autocomplete="off">
+                        </mat-form-field>
 
-        <mat-form-field appearance=" fill">
-            <mat-label>Gender</mat-label>
-            <mat-select #gender required>
-                <mat-option value="'Male'">Male</mat-option>
-                <mat-option value="'Female'">Female</mat-option>
-                <mat-option value="'Other'">Other</mat-option>
-            </mat-select>
-        </mat-form-field>
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Gender</mat-label>
+                            <mat-select #gender>
+                                <mat-option value="'Male'">Male</mat-option>
+                                <mat-option value="'Female'">Female</mat-option>
+                                <mat-option value="'Other'">Other</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Birth Date</mat-label>
+                            <input matInput [matDatepicker]="birthday">
+                            <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+                            <mat-datepicker #birthday></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>User Type</mat-label>
+                            <mat-select #userType required>
+                                <mat-option value="'pacient'">Pacient</mat-option>
+                                <mat-option value="'professional'">Professional</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Professional Type</mat-label>
+                            <mat-select #professionalType required>
+                                <mat-option value="'Doctor'">Doctor</mat-option>
+                                <mat-option value="'Nurse'">Nurse</mat-option>
+                                <mat-option value="'Administrative'">Administrative</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel>Address Information</ng-template>
+                    <div class="row">
+                        <mat-form-field appearance=" fill">
+                            <mat-label>City</mat-label>
+                            <input matInput #city autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Postal Code</mat-label>
+                            <input matInput #postalCode autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Street</mat-label>
+                            <input matInput #street autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Street Number</mat-label>
+                            <input matInput #streetNumber autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Door Number/Letter</mat-label>
+                            <input matInput #doorNumber autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel>Medical & Insurance Information</ng-template>
+                    <div class="row">
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Medical Board Number</mat-label>
+                            <input matInput #medicalBoard autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>NHC</mat-label>
+                            <input matInput #nhc autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Insurance Company</mat-label>
+                            <input matInput #insuranceCompany autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>NIF</mat-label>
+                            <input matInput #nif autocomplete="off">
+                        </mat-form-field>
+
+                    </div>
+                    <div class="row">
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Card Number</mat-label>
+                            <input matInput #cardNumber autocomplete="off">
+                        </mat-form-field>
+
+                        <mat-form-field appearance=" fill">
+                            <mat-label>Insurance Type</mat-label>
+                            <input matInput #insuranceType autocomplete="off">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
 
         <br>
         <br>
 
-        <mat-form-field appearance=" fill">
-            <mat-label>Birth Date</mat-label>
-            <input matInput [matDatepicker]="birthday">
-            <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
-            <mat-datepicker #birthday></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>NIF</mat-label>
-            <input matInput #nif autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Street</mat-label>
-            <input matInput #street autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Street Number</mat-label>
-            <input matInput #streetNumber autocomplete="off">
-        </mat-form-field>
-
-        <br>
-        <br>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Door Number/Letter</mat-label>
-            <input matInput #doorNumber autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Postal Code</mat-label>
-            <input matInput #postalCode autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>City</mat-label>
-            <input matInput #city autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Medical Board Number</mat-label>
-            <input matInput #medicalBoard autocomplete="off">
-        </mat-form-field>
-
-        <br>
-        <br>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Professional Type</mat-label>
-            <input matInput #professionalType autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>NHC</mat-label>
-            <input matInput #nhc autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Insurance Company</mat-label>
-            <input matInput #insuranceCompany autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Insurance Type</mat-label>
-            <input matInput #insuranceType autocomplete="off">
-        </mat-form-field>
-
-        <br>
-        <br>
-
-        <mat-form-field appearance=" fill">
-            <mat-label>Card Number</mat-label>
-            <input matInput #cardNumber autocomplete="off">
-        </mat-form-field>
-
-        <br>
-        <br>
-
-        <button mat-raised-button color="primary" (click)="add(name.value, surname.value, gender.value, birthday)"
+        <button mat-raised-button [disabled]="userForm.pristine || userForm.invalid" color="warn"
+            (click)="add(name.value, surname.value, second_surname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)"
             type="submit">Create User</button>
-        <button mat-raised-button color="primary" type="submit">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [routerLink]="'../'">Cancel</button>
     </form>
 </div>

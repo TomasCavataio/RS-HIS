@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -17,7 +18,7 @@ export class UsersListComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((data: User[]) => {
@@ -34,7 +35,7 @@ export class UsersListComponent implements OnInit {
   deleteUser(user: User): void {
     const confirmation = confirm(`Confirm that you want ${user.name} ${user.first_surname}, with id: ${user.id} to be deleted`);
     if (confirmation) {
-      this.userService.deleteUser(user.id).subscribe(() => this.getUsers());
+      this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
     }
   }
 }
