@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-user-create',
@@ -47,6 +48,32 @@ export class UserCreateComponent implements OnInit {
     });
   }
 
+  buildUser(userForm: FormGroup, addressForm: FormGroup, medicalForm: FormGroup): void {
+    const userData = userForm.value; const addressData = addressForm.value; const medicalData = medicalForm.value;
+    const user = {
+      name: userData.name,
+      firstSurname: userData.surname,
+      secondSurname: userData.secondSurname,
+      gender: userData.gender,
+      birthDate: userData.birthday,
+      professionalType: userData.professionalType,
+      address: {
+        city: addressData.city,
+        postalCode: addressData.postalCode,
+        street: addressData.street,
+        streetNumber: addressData.streetNumber,
+        doorNumber: addressData.doorNumber
+      },
+      medicalBoardNumber: medicalData.medicalBoard,
+      nhc: medicalData.nhc,
+      insuranceCompanyName: medicalData.insuranceCompany,
+      nif: medicalData.nif,
+      cardNumber: medicalData.cardNumber,
+      insuranceType: medicalData.insuranceType
+    };
+    this.addUser(user);
+  }
+
   verifyUser(): void {
     if (this.isPacient === true) {
       this.isPacient = false;
@@ -55,32 +82,8 @@ export class UserCreateComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line: max-line-length
-  add(userForm: FormGroup, addressForm: FormGroup, medicalForm: FormGroup): void {
-    console.log(userForm.value, addressForm.value, medicalForm.value);
-    // this.userService.addUser(user).subscribe(() => this.router.navigate(['/users']));
+  addUser(user): void {
+    this.userService.addUser(user).subscribe(() => this.router.navigate(['/users']));
   }
 
 }
-
-
-
-/* const user = {
-  name,
-  firstSurname: surname,
-  secondSurname: secondSurname,
-  gender,
-  birthDate: birthday,
-  professionalType: professionalType,
-  city,
-  postalCode: postal,
-  street,
-  streetNumber: streetNumber,
-  doorNumber: doorNumber,
-  medicalBoardNumber: medicalBoard,
-  nhc,
-  insuranceCompanyName: insuranceCompany,
-  nif,
-  cardNumber: cardNumber,
-  insuranceType: insuranceType
-}; */

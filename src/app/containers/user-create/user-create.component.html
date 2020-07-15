@@ -1,6 +1,6 @@
 <div class="create-form-container">
     <!-- Template Driven Forms -->
-    <form #createUser="ngForm" (ngSubmit)="add(userForm, addressForm, medicalForm)">
+    <form #createUser="ngForm" (ngSubmit)="buildUser(userForm, addressForm, medicalForm)">
         <mat-horizontal-stepper #stepper>
             <mat-step [stepControl]="userForm">
                 <form [formGroup]="userForm">
@@ -56,9 +56,9 @@
                         <mat-form-field *ngIf="!isPacient" appearance=" fill">
                             <mat-label>Professional Type</mat-label>
                             <mat-select formControlName="professionalType" #professionalType required>
-                                <mat-option value="'Doctor'">Doctor</mat-option>
-                                <mat-option value="'Nurse'">Nurse</mat-option>
-                                <mat-option value="'Administrative'">Administrative</mat-option>
+                                <mat-option value='Doctor'>Doctor</mat-option>
+                                <mat-option value='Nurse'>Nurse</mat-option>
+                                <mat-option value='Administrative'>Administrative</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
@@ -69,7 +69,7 @@
             </mat-step>
             <mat-step>
                 <form [formGroup]="addressForm">
-                    <ng-template matStepLabel>Address Information</ng-template>
+                    <ng-template matStepperIcon="location_on" matStepLabel>Address Information</ng-template>
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>City</mat-label>
@@ -120,7 +120,8 @@
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Insurance Company</mat-label>
-                            <input matInput formControlName="insuranceCompanyName" #insuranceCompany autocomplete="off">
+                            <input matInput formControlName="insuranceCompanyName" #insuranceCompanyName
+                                autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
@@ -165,5 +166,3 @@
         <button mat-raised-button color="primary" type="submit" [routerLink]="'../'">Cancel</button>
     </form>
 </div>
-
-<!-- (click)="add(name.value, surname.value, secondSurname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)" -->

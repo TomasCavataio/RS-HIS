@@ -16,7 +16,7 @@
         "postalCode": "string"
       },
       "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
+      "professionalType": "Nurse",
       "nhc": "",
       "insuranceCompanyName": "",
       "insuranceType": "",
@@ -38,7 +38,7 @@
         "postalCode": "string"
       },
       "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
+      "professionalType": "God",
       "nhc": "",
       "insuranceCompanyName": "",
       "insuranceType": "",
@@ -60,52 +60,8 @@
         "postalCode": "string"
       },
       "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
+      "professionalType": "God",
       "nhc": "asaa5432",
-      "insuranceCompanyName": "",
-      "insuranceType": "",
-      "cardNumber": ""
-    },
-    {
-      "id": 4,
-      "name": "Carlo",
-      "firstSurname": "Magno",
-      "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
-      "nif": "XHDAMDFK",
-      "address": {
-        "city": "olimpus",
-        "street": "string",
-        "streetNumber": "string",
-        "doorNumber": "string",
-        "postalCode": "string"
-      },
-      "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
-      "nhc": "",
-      "insuranceCompanyName": "",
-      "insuranceType": "",
-      "cardNumber": ""
-    },
-    {
-      "id": 5,
-      "name": "Alexander",
-      "firstSurname": "The Great",
-      "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
-      "nif": "XHDAMDFK",
-      "address": {
-        "city": "olimpus",
-        "street": "string",
-        "streetNumber": "string",
-        "doorNumber": "string",
-        "postalCode": "string"
-      },
-      "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
-      "nhc": "6543",
       "insuranceCompanyName": "",
       "insuranceType": "",
       "cardNumber": ""
@@ -126,7 +82,7 @@
         "postalCode": "string"
       },
       "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
+      "professionalType": "Imperator",
       "nhc": "",
       "insuranceCompanyName": "",
       "insuranceType": "",
@@ -148,11 +104,27 @@
         "postalCode": "string"
       },
       "medicalBoardNumber": "39239",
-      "professionalType": "Doctor",
+      "professionalType": "God",
       "nhc": "987654",
       "insuranceCompanyName": "",
       "insuranceType": "",
       "cardNumber": ""
+    },
+    {
+      "name": "Vlad",
+      "firstSurname": "Dracula",
+      "secondSurname": "",
+      "gender": "'Male'",
+      "birthDate": "2020-06-30T22:00:00.000Z",
+      "professionalType": "'Doctor'",
+      "address": {
+        "city": "",
+        "postalCode": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": ""
+      },
+      "id": 12
     }
   ]
 }

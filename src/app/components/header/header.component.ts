@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   showUsers(): void {
   }
 
-  multipleDelete(): void {
-
+  deleteDoctors(): void {
+    this.userService.deleteDoctors();
   }
 }
