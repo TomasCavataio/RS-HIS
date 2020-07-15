@@ -1,6 +1,6 @@
 <div class="create-form-container">
     <!-- Template Driven Forms -->
-    <form #createUser="ngForm">
+    <form #createUser="ngForm" (ngSubmit)="add(userForm, addressForm, medicalForm)">
         <mat-horizontal-stepper #stepper>
             <mat-step [stepControl]="userForm">
                 <form [formGroup]="userForm">
@@ -24,12 +24,12 @@
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Second Surname </mat-label>
-                            <input matInput #second_surname autocomplete="off">
+                            <input matInput formControlName="secondSurname" #secondSurname autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Gender</mat-label>
-                            <mat-select #gender>
+                            <mat-select formControlName="gender" #gender>
                                 <mat-option value="'Male'">Male</mat-option>
                                 <mat-option value="'Female'">Female</mat-option>
                                 <mat-option value="'Other'">Other</mat-option>
@@ -39,7 +39,7 @@
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>Birth Date</mat-label>
-                            <input matInput [matDatepicker]="birthday">
+                            <input formControlName="birthday" matInput [matDatepicker]="birthday">
                             <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
                             <mat-datepicker #birthday></mat-datepicker>
                         </mat-form-field>
@@ -55,7 +55,7 @@
 
                         <mat-form-field *ngIf="!isPacient" appearance=" fill">
                             <mat-label>Professional Type</mat-label>
-                            <mat-select #professionalType required>
+                            <mat-select formControlName="professionalType" #professionalType required>
                                 <mat-option value="'Doctor'">Doctor</mat-option>
                                 <mat-option value="'Nurse'">Nurse</mat-option>
                                 <mat-option value="'Administrative'">Administrative</mat-option>
@@ -68,33 +68,33 @@
                 </form>
             </mat-step>
             <mat-step>
-                <form>
+                <form [formGroup]="addressForm">
                     <ng-template matStepLabel>Address Information</ng-template>
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>City</mat-label>
-                            <input matInput #city autocomplete="off">
+                            <input formControlName="city" matInput #city autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Postal Code</mat-label>
-                            <input matInput #postalCode autocomplete="off">
+                            <input formControlName="postalCode" matInput #postalCode autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Street</mat-label>
-                            <input matInput #street autocomplete="off">
+                            <input formControlName="street" matInput #street autocomplete="off">
                         </mat-form-field>
                     </div>
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>Street Number</mat-label>
-                            <input matInput #streetNumber autocomplete="off">
+                            <input formControlName="streetNumber" matInput #streetNumber autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Door Number/Letter</mat-label>
-                            <input matInput #doorNumber autocomplete="off">
+                            <input formControlName="doorNumber" matInput #doorNumber autocomplete="off">
                         </mat-form-field>
                     </div>
                     <div>
@@ -120,24 +120,24 @@
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Insurance Company</mat-label>
-                            <input matInput #insuranceCompany autocomplete="off">
+                            <input matInput formControlName="insuranceCompanyName" #insuranceCompany autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>NIF</mat-label>
-                            <input matInput #nif autocomplete="off">
+                            <input formControlName="nif" matInput #nif autocomplete="off">
                         </mat-form-field>
 
                     </div>
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>Card Number</mat-label>
-                            <input matInput #cardNumber autocomplete="off">
+                            <input formControlName="cardNumber" matInput #cardNumber autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
                             <mat-label>Insurance Type</mat-label>
-                            <input matInput #insuranceType autocomplete="off">
+                            <input formControlName="insuranceType" matInput #insuranceType autocomplete="off">
                         </mat-form-field>
                     </div>
                     <div>
@@ -166,4 +166,4 @@
     </form>
 </div>
 
-<!-- (click)="add(name.value, surname.value, second_surname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)" -->
+<!-- (click)="add(name.value, surname.value, secondSurname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)" -->

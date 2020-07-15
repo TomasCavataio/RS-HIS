@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private url = 'http://localhost:3000/users';
+  userSubject = new BehaviorSubject<User[]>([]);
+  user$ = this.userSubject.asObservable();
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}`);
+  getUsers(): void {
+    this.http.get<User[]>(`${this.url}`).subscribe(data => {
+      this.userSubject.next(data);
+    });
   }
 
   getUser(id: string): Observable<User> {

@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   deleteUser(user: User): void {
-    const confirmation = confirm(`Confirm that you want ${user.name} ${user.first_surname}, with id: ${user.id} to be deleted`);
+    const confirmation = confirm(`Confirm that you want ${user.name} ${user.firstSurname}, with id: ${user.id} to be deleted`);
     if (confirmation) {
       this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
     }

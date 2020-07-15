@@ -1,7 +1,7 @@
 <mat-card class="detail-card">
     <mat-card-header>
         <div class="header">
-            <mat-card-title>{{user.name}}, {{user.first_surname}}</mat-card-title>
+            <mat-card-title>{{user.name}}, {{user.firstSurname}}</mat-card-title>
             <mat-card-subtitle>ID: {{user.id}}</mat-card-subtitle>
         </div>
     </mat-card-header>
@@ -16,16 +16,16 @@
                 <tr class="dataHeader">
                     <td>Name</td>
                     <td>Surname</td>
-                    <td *ngIf="user.second_surname != ''">Second Surname</td>
+                    <td *ngIf="user.secondSurname != ''">Second Surname</td>
                     <td>Gender</td>
                     <td>Birth-Day</td>
                 </tr>
                 <tr class="data">
                     <td>{{user.name}}</td>
-                    <td>{{user.first_surname}}</td>
-                    <td *ngIf="user.second_surname != ''">{{user.second_surname}}</td>
+                    <td>{{user.firstSurname}}</td>
+                    <td *ngIf="user.secondSurname != ''">{{user.secondSurname}}</td>
                     <td>{{user.gender}}</td>
-                    <td>{{user.birth_date}}</td>
+                    <td>{{user.birthDate}}</td>
                 </tr>
                 </div>
                 </mat-tab>
@@ -39,10 +39,10 @@
                             <td>Postal Code</td>
                         </tr>
                         <tr class="data">
-                            <td>{{user.city}}</td>
-                            <td>{{user.street}}, {{user.street_number}}</td>
-                            <td>{{user.door_number}}</td>
-                            <td>{{user.postal_code}}</td>
+                            <td>{{user.address.city}}</td>
+                            <td>{{user.address.street}}, {{user.address.streetNumber}}</td>
+                            <td>{{user.address.doorNumber}}</td>
+                            <td>{{user.address.postalCode}}</td>
                         </tr>
                     </div>
                 </mat-tab>
@@ -51,15 +51,15 @@
                     <div class="example-large-box mat-elevation-z4">
                         <tr class="dataHeader">
                             <td>User</td>
-                            <td *ngIf="user.medical_board_number != ''">Medical Board Number</td>
+                            <td *ngIf="user.medicalBoardNumber != ''">Medical Board Number</td>
                             <td *ngIf="user.nhc != ''">NHC</td>
                             <td>Card Number</td>
                         </tr>
                         <tr class="data">
-                            <td>{{user.professional_type}}</td>
-                            <td *ngIf="user.medical_board_number != ''">{{user.medical_board_number}}</td>
+                            <td>{{user.professionalType}}</td>
+                            <td *ngIf="user.medicalBoardNumber != ''">{{user.medicalBoardNumber}}</td>
                             <td *ngIf="user.nhc != ''">{{user.nhc}}</td>
-                            <td>{{user.card_number}}</td>
+                            <td>{{user.cardNumber}}</td>
                         </tr>
                     </div>
                 </mat-tab>
@@ -71,8 +71,8 @@
                             <td>Insurance Type</td>
                         </tr>
                         <tr class="data">
-                            <td>{{user.insurance_company_name}}</td>
-                            <td>{{user.insurance_type}}</td>
+                            <td>{{user.insuranceCompanyName}}</td>
+                            <td>{{user.insuranceType}}</td>
                         </tr>
                     </div>
                 </mat-tab>

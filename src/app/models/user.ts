@@ -1,22 +1,25 @@
 export interface User {
     id: string;
     name: string;
-    first_surname: string;
-    second_surname: string;
+    firstSurname: string;
+    secondSurname: string;
     gender: string;
-    birth_date: Date;
+    birthDate: Date;
     nif: string;
-    street: string;
-    street_number: string;
-    door_number: string;
-    postal_code: string;
-    city: string;
-    medical_board_number: string;
-    professional_type: string;
+    address: {
+        city: string;
+        street: string;
+        streetNumber: string;
+        doorNumber: string;
+        postalCode: string;
+    };
+    medicalBoardNumber: string;
+    professionalType: string;
     nhc: string;
-    insurance_company_name: string;
-    insurance_type: string;
-    card_number: string;
+    insuranceCompanyName: string;
+    insuranceType: string;
+    cardNumber: string;
+    checked: boolean;
 }
 
 export interface UserResponse {

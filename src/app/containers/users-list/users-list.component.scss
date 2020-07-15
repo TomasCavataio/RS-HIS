@@ -15,15 +15,16 @@ mat-table {
         &:focus {
             outline: #4caf50 solid 3px;
         }
-        &:hover {
-            cursor: pointer;
-        }
         mat-cell {
             margin: 0 1%;
             &:hover {
                 transition: 0.8s;
                 font-size: initial;
                 color: white;
+                cursor: pointer;
+            }
+            .deleteCheckbox {
+                margin-left: 1em;
             }
         }
         .edit {

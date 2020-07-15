@@ -16,13 +16,13 @@
         <!-- Name Column -->
         <ng-container matColumnDef="surname">
             <mat-header-cell *matHeaderCellDef> Surname </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.first_surname}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.firstSurname}} </mat-cell>
         </ng-container>
 
         <!-- Medical board nymber Column -->
         <ng-container matColumnDef="medicalNumber">
             <mat-header-cell *matHeaderCellDef> Medical Board Number </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.medical_board_number}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.medicalBoardNumber}} </mat-cell>
         </ng-container>
 
         <!-- Medical Clinic History Number -->
@@ -48,6 +48,16 @@
                 <button (click)="deleteUser(element)" mat-fab color="warn">
                     <mat-icon>delete</mat-icon>
                 </button>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Checkboxes for multiple delete -->
+        <ng-container matColumnDef="checkbox">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <section class="deleteCheckbox">
+                    <mat-checkbox color="warn"></mat-checkbox>
+                </section>
             </mat-cell>
         </ng-container>
 

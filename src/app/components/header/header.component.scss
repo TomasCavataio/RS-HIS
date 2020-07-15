@@ -11,5 +11,16 @@
                 margin-left: 1%;
             }
         }
+        .multipleDelete {
+            background-color: red;
+            padding: 20px;
+            user-select: none;
+            border-radius: 22px;
+            margin-left: 2em;
+            button {
+                margin-left: 1%;
+                color: black;
+            }
+        }
     }
 }
