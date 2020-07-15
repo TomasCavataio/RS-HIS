@@ -2,13 +2,13 @@
     <!-- Template Driven Forms -->
     <form #createUser="ngForm">
         <mat-horizontal-stepper #stepper>
-            <mat-step [stepControl]="stepFormGroup">
+            <mat-step [stepControl]="userForm">
                 <form [formGroup]="userForm">
                     <ng-template matStepLabel>Personal Information</ng-template>
                     <div class="row">
                         <mat-form-field appearance=" fill">
                             <mat-label>Name</mat-label>
-                            <input matInput formControlName="name" #name required autocomplete="off">
+                            <input matInput formControlName="name" #name required autocomplete="off" autofocus>
                             <mat-error
                                 *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">
                             </mat-error>
@@ -46,13 +46,14 @@
 
                         <mat-form-field appearance=" fill">
                             <mat-label>User Type</mat-label>
-                            <mat-select #userType required>
-                                <mat-option value="'pacient'">Pacient</mat-option>
-                                <mat-option value="'professional'">Professional</mat-option>
+                            <mat-select [(value)]="pacient" #userType formControlName="userType"
+                                (selectionChange)="verifyUser()" required>
+                                <mat-option value="pacient">Pacient</mat-option>
+                                <mat-option value="professional">Professional</mat-option>
                             </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="!isPacient" appearance=" fill">
                             <mat-label>Professional Type</mat-label>
                             <mat-select #professionalType required>
                                 <mat-option value="'Doctor'">Doctor</mat-option>
@@ -102,18 +103,19 @@
                     </div>
                 </form>
             </mat-step>
-            <mat-step>
-                <form>
+            <mat-step [stepControl]="medicalForm">
+                <form [formGroup]="medicalForm">
                     <ng-template matStepLabel>Medical & Insurance Information</ng-template>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="!isPacient" appearance=" fill">
                             <mat-label>Medical Board Number</mat-label>
-                            <input matInput #medicalBoard autocomplete="off">
+                            <input matInput #medicalBoard formControlName="medicalBoard" autocomplete="off"
+                                [required]="!isPacient">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance=" fill">
                             <mat-label>NHC</mat-label>
-                            <input matInput #nhc autocomplete="off">
+                            <input matInput #nhc formControlName="nhc" autocomplete="off" [required]="isPacient">
                         </mat-form-field>
 
                         <mat-form-field appearance=" fill">
@@ -128,7 +130,6 @@
 
                     </div>
                     <div class="row">
-
                         <mat-form-field appearance=" fill">
                             <mat-label>Card Number</mat-label>
                             <input matInput #cardNumber autocomplete="off">
@@ -158,9 +159,11 @@
         <br>
         <br>
 
-        <button mat-raised-button [disabled]="userForm.pristine || userForm.invalid" color="warn"
-            (click)="add(name.value, surname.value, second_surname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)"
-            type="submit">Create User</button>
+        <button mat-raised-button
+            [disabled]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoard.pristine || medicalForm.controls.medicalBoard.invalid))"
+            color="warn" type="submit">Create User</button>
         <button mat-raised-button color="primary" type="submit" [routerLink]="'../'">Cancel</button>
     </form>
 </div>
+
+<!-- (click)="add(name.value, surname.value, second_surname.value, gender.value, birthday,professionalType.value, city.value, postalCode.value, street.value, streetNumber.value, doorNumber.value, medicalBoard.value, nhc.value, insuranceCompany.value, nif.value, cardNumber.value, insuranceType.value)" -->
