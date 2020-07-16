@@ -5,15 +5,15 @@
       "name": "Genghis",
       "firstSurname": "Khan",
       "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
+      "gender": "Male",
+      "birthDate": "2020-07-04T22:00:00.000Z",
       "nif": "XHDAMDFK",
       "address": {
-        "city": "olimpus",
-        "street": "string",
-        "streetNumber": "string",
-        "doorNumber": "string",
-        "postalCode": "string"
+        "city": "Olimpus",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
       },
       "medicalBoardNumber": "39239",
       "professionalType": "Nurse",
@@ -27,8 +27,8 @@
       "name": "Odin",
       "firstSurname": "Allfather",
       "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
+      "gender": "Male",
+      "birthDate": "2020-07-06T22:00:00.000Z",
       "nif": "XHDAMDFK",
       "address": {
         "city": "olimpus",
@@ -41,7 +41,7 @@
       "professionalType": "God",
       "nhc": "",
       "insuranceCompanyName": "",
-      "insuranceType": "",
+      "insuranceType": "Family",
       "cardNumber": ""
     },
     {
@@ -49,15 +49,15 @@
       "name": "Zeus",
       "firstSurname": "Lightning",
       "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
+      "gender": "Male",
+      "birthDate": "2020-07-05T22:00:00.000Z",
       "nif": "XHDAMDFK",
       "address": {
         "city": "olimpus",
-        "street": "string",
-        "streetNumber": "string",
-        "doorNumber": "string",
-        "postalCode": "string"
+        "street": "Lightining",
+        "streetNumber": "",
+        "doorNumber": "Rayo",
+        "postalCode": "Mcqueen"
       },
       "medicalBoardNumber": "39239",
       "professionalType": "God",
@@ -93,8 +93,8 @@
       "name": "Thor",
       "firstSurname": "Odinson",
       "secondSurname": "Castillo",
-      "gender": "Man",
-      "birthDate": "20-05-1990",
+      "gender": "Male",
+      "birthDate": "2020-07-01T22:00:00.000Z",
       "nif": "XHDAMDFK",
       "address": {
         "city": "olimpus",
@@ -134,11 +134,11 @@
       "id": 10
     },
     {
-      "name": "Floyd Mayweather",
-      "firstSurname": "Poppp",
+      "name": "Floyd ",
+      "firstSurname": "Mayweather",
       "userType": "pacient",
       "secondSurname": "",
-      "gender": "",
+      "gender": "Male",
       "birthDate": "2020-04-02T22:00:00.000Z",
       "professionalType": "",
       "address": {
@@ -150,34 +150,80 @@
       },
       "nhc": "67890",
       "medicalBoardNumber": "",
-      "insuranceCompanyName": "",
+      "insuranceCompanyName": "Adeslas",
       "nif": "",
-      "cardNumber": "",
+      "cardNumber": "666894851623",
       "insuranceType": "Family",
       "id": 12
     },
     {
-      "name": "Dr",
-      "firstSurname": "House",
+      "name": "Doctor",
+      "firstSurname": "Casa",
       "userType": "professional",
-      "secondSurname": "",
-      "gender": "'Male'",
+      "secondSurname": "Housey",
+      "gender": "Male",
       "birthDate": "1997-05-11T22:00:00.000Z",
       "professionalType": "Doctor",
       "address": {
-        "city": "",
-        "street": "",
+        "city": "El Casar",
+        "street": "C/ Alcalde Julio Gonzalo",
         "streetNumber": "",
         "doorNumber": "",
-        "postalCode": ""
+        "postalCode": "19170"
       },
-      "nhc": "",
+      "nhc": "6868",
       "medicalBoardNumber": "12345654321",
       "insuranceCompanyName": "",
       "nif": "",
       "cardNumber": "",
       "insuranceType": "",
       "id": 13
+    },
+    {
+      "name": "Evan",
+      "firstSurname": "Cugat",
+      "userType": "pacient",
+      "secondSurname": "",
+      "gender": "Other",
+      "birthDate": "2020-07-07T22:00:00.000Z",
+      "professionalType": "",
+      "address": {
+        "city": "El Casar",
+        "street": "C/ Alcalde Julio Gonzalo",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "19170"
+      },
+      "nhc": "364756",
+      "medicalBoardNumber": "",
+      "insuranceCompanyName": "",
+      "nif": "",
+      "cardNumber": "",
+      "insuranceType": "Health",
+      "id": 14
+    },
+    {
+      "name": "Claudia",
+      "firstSurname": "Real",
+      "userType": "pacient",
+      "secondSurname": "Gil",
+      "gender": "Female",
+      "birthDate": "1996-07-20T22:00:00.000Z",
+      "professionalType": "",
+      "nif": "1651587J",
+      "address": {
+        "city": "Madrid",
+        "street": "Av. Montesegovia",
+        "streetNumber": "66",
+        "doorNumber": "A",
+        "postalCode": "281625"
+      },
+      "nhc": "7963214",
+      "medicalBoardNumber": "",
+      "insuranceCompanyName": "Adeslas",
+      "cardNumber": "8889996668",
+      "insuranceType": "Health",
+      "id": 15
     }
   ]
 }

@@ -3,7 +3,7 @@ export interface User {
     name: string;
     firstSurname: string;
     secondSurname: string;
-    gender: string;
+    gender: Gender;
     birthDate: Date;
     nif: string;
     address: {
@@ -21,6 +21,8 @@ export interface User {
     cardNumber: string;
     checked: boolean;
 }
+
+type Gender = 'Male' | 'Female' | 'Other';
 
 export interface UserResponse {
     users: User[];

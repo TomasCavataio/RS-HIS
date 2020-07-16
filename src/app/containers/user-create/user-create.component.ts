@@ -21,6 +21,7 @@ export class UserCreateComponent implements OnInit {
   addressForm: FormGroup;
   isPacient: boolean;
   pacient: string;
+  maxDate = new Date();
   user = {};
 
   constructor(private http: HttpClient, private userService: UserService, private router: Router, private formBuilder: FormBuilder) {
@@ -30,7 +31,6 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.isPacient = true;
-    this.userForm.controls.userType.setValue('pacient');
   }
 
   getShowSpinner(): boolean {
@@ -42,7 +42,7 @@ export class UserCreateComponent implements OnInit {
       name: ['', Validators.required],
       firstSurname: ['', Validators.required],
       userType: ['', Validators.required],
-      secondSurname: '', gender: '', birthDate: '', professionalType: ''
+      secondSurname: '', gender: '', birthDate: '', professionalType: '', nif: ''
     });
     this.addressForm = this.formBuilder.group({
       city: '', street: '', streetNumber: '', doorNumber: '', postalCode: ''
@@ -50,15 +50,15 @@ export class UserCreateComponent implements OnInit {
     this.medicalForm = this.formBuilder.group({
       nhc: [''],
       medicalBoardNumber: [''],
-      insuranceCompanyName: '', nif: '', cardNumber: '', insuranceType: ''
+      insuranceCompanyName: '', cardNumber: '', insuranceType: ''
     });
   }
 
-  verifyUser(): void {
-    if (this.isPacient === true) {
-      this.isPacient = false;
-    } else {
+  verifyUser(userType: string): void {
+    if (userType === 'pacient') {
       this.isPacient = true;
+    } else {
+      this.isPacient = false;
     }
   }
 
