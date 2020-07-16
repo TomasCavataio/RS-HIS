@@ -1,12 +1,14 @@
 @import "src/colors";
 
-form {
-    text-align: center;
-    .row {
-        display: flex;
-        justify-content: space-evenly;
-    }
-    .doneMessage {
-        color: $primary;
+.create-form-container {
+    form {
+        text-align: center;
+        .row {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .doneMessage {
+            color: $primary;
+        }
     }
 }

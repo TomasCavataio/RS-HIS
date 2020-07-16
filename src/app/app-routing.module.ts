@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'users', component: UsersListComponent },
   { path: 'users/new', component: UserCreateComponent },
   { path: 'users/edit/:id', component: UserEditComponent },
-  { path: 'users/:id', component: UserDetailComponent }
+  { path: 'users/:id', component: UserDetailComponent },
+  { path: '**', redirectTo: 'error404' }
 ];
 
 @NgModule({

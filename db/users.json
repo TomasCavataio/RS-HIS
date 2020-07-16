@@ -109,6 +109,75 @@
       "insuranceCompanyName": "",
       "insuranceType": "",
       "cardNumber": ""
+    },
+    {
+      "name": "Andres",
+      "firstSurname": "Iniesta",
+      "userType": "pacient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "professionalType": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "7890",
+      "medicalBoardNumber": "",
+      "insuranceCompanyName": "",
+      "nif": "",
+      "cardNumber": "",
+      "insuranceType": "Dental",
+      "id": 10
+    },
+    {
+      "name": "Floyd Mayweather",
+      "firstSurname": "Poppp",
+      "userType": "pacient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "2020-04-02T22:00:00.000Z",
+      "professionalType": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "67890",
+      "medicalBoardNumber": "",
+      "insuranceCompanyName": "",
+      "nif": "",
+      "cardNumber": "",
+      "insuranceType": "Family",
+      "id": 12
+    },
+    {
+      "name": "Dr",
+      "firstSurname": "House",
+      "userType": "professional",
+      "secondSurname": "",
+      "gender": "'Male'",
+      "birthDate": "1997-05-11T22:00:00.000Z",
+      "professionalType": "Doctor",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "",
+      "medicalBoardNumber": "12345654321",
+      "insuranceCompanyName": "",
+      "nif": "",
+      "cardNumber": "",
+      "insuranceType": "",
+      "id": 13
     }
   ]
 }

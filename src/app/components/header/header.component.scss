@@ -3,6 +3,8 @@
     height: 10%;
     header {
         margin: 1em;
+        min-width: 40em;
+        overflow-x: auto;
         .newUser {
             background-color: $addLabel;
             padding: 20px;

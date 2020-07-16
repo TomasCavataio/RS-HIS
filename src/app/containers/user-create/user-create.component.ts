@@ -21,6 +21,8 @@ export class UserCreateComponent implements OnInit {
   addressForm: FormGroup;
   isPacient: boolean;
   pacient: string;
+  user = {};
+
   constructor(private http: HttpClient, private userService: UserService, private router: Router, private formBuilder: FormBuilder) {
 
   }
@@ -38,9 +40,9 @@ export class UserCreateComponent implements OnInit {
   createForm(): void {
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],
-      surname: ['', Validators.required],
+      firstSurname: ['', Validators.required],
       userType: ['', Validators.required],
-      secondSurname: '', gender: '', birthday: '', professionalType: ''
+      secondSurname: '', gender: '', birthDate: '', professionalType: ''
     });
     this.addressForm = this.formBuilder.group({
       city: '', street: '', streetNumber: '', doorNumber: '', postalCode: ''
@@ -52,32 +54,6 @@ export class UserCreateComponent implements OnInit {
     });
   }
 
-  buildUser(userForm: FormGroup, addressForm: FormGroup, medicalForm: FormGroup): void {
-    const userData = userForm.value; const addressData = addressForm.value; const medicalData = medicalForm.value;
-    const user = {
-      name: userData.name,
-      firstSurname: userData.surname,
-      secondSurname: userData.secondSurname,
-      gender: userData.gender,
-      birthDate: userData.birthday,
-      professionalType: userData.professionalType,
-      address: {
-        city: addressData.city,
-        postalCode: addressData.postalCode,
-        street: addressData.street,
-        streetNumber: addressData.streetNumber,
-        doorNumber: addressData.doorNumber
-      },
-      medicalBoardNumber: medicalData.medicalBoardNumber,
-      nhc: medicalData.nhc,
-      insuranceCompanyName: medicalData.insuranceCompanyName,
-      nif: medicalData.nif,
-      cardNumber: medicalData.cardNumber,
-      insuranceType: medicalData.insuranceType
-    };
-    this.addUser(user);
-  }
-
   verifyUser(): void {
     if (this.isPacient === true) {
       this.isPacient = false;
@@ -86,8 +62,23 @@ export class UserCreateComponent implements OnInit {
     }
   }
 
-  addUser(user): void {
-    this.userService.addUser(user).subscribe(() => this.router.navigate(['/users']));
+  formToUser(form: FormGroup, attribute: string = ''): void {
+    if (!attribute) {
+      this.user = Object.assign(this.user, form.value);
+    } else {
+      this.user[attribute] = form.getRawValue();
+    }
+  }
+
+  getUser(): void {
+    this.formToUser(this.userForm);
+    this.formToUser(this.addressForm, 'address');
+    this.formToUser(this.medicalForm);
+  }
+
+  addUser(): void {
+    this.getUser();
+    this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
   }
 
 }

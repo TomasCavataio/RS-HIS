@@ -2,7 +2,7 @@
     <!-- Template Driven Forms -->
     <app-spinner *ngIf="getShowSpinner()"></app-spinner>
 
-    <form #createUser="ngForm" (ngSubmit)="buildUser(userForm, addressForm, medicalForm)">
+    <form #createUser="ngForm" (ngSubmit)="addUser()">
         <mat-horizontal-stepper #stepper>
             <mat-step [stepControl]="userForm">
                 <form [formGroup]="userForm">
@@ -11,17 +11,11 @@
                         <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
                             <input matInput formControlName="name" #name required autocomplete="off" autofocus>
-                            <mat-error
-                                *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">
-                            </mat-error>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
                             <mat-label>Surname</mat-label>
-                            <input matInput formControlName="surname" #surname required autocomplete="off">
-                            <mat-error
-                                *ngIf="userForm.controls['surname'].invalid && (userForm.controls['surname'].dirty || userForm.controls['surname'].touched)">
-                            </mat-error>
+                            <input matInput formControlName="firstSurname" #firstSurname required autocomplete="off">
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">
@@ -32,18 +26,18 @@
                         <mat-form-field appearance="outline">
                             <mat-label>Gender</mat-label>
                             <mat-select formControlName="gender" #gender>
-                                <mat-option value="'Male'">Male</mat-option>
-                                <mat-option value="'Female'">Female</mat-option>
-                                <mat-option value="'Other'">Other</mat-option>
+                                <mat-option value='Male'>Male</mat-option>
+                                <mat-option value='Female'>Female</mat-option>
+                                <mat-option value='Other'>Other</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
                     <div class="row">
                         <mat-form-field appearance="outline">
                             <mat-label>Birth Date</mat-label>
-                            <input formControlName="birthday" matInput [matDatepicker]="birthday">
-                            <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
-                            <mat-datepicker #birthday></mat-datepicker>
+                            <input formControlName="birthDate" matInput [matDatepicker]="birthDate">
+                            <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+                            <mat-datepicker #birthDate></mat-datepicker>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline">

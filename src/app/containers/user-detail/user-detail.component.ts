@@ -26,6 +26,9 @@ export class UserDetailComponent implements OnInit {
     return this.userService.showSpinner;
   }
 
+  openEdit(user: User): void {
+    this.router.navigate(['./users/edit', user.id]);
+  }
 
   getUser(id: string): void {
     this.userService.getUser(id).subscribe((data: User) => {

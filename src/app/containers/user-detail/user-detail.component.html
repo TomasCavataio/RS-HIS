@@ -25,7 +25,7 @@
                     <td>{{user?.firstSurname}}</td>
                     <td *ngIf="user?.secondSurname != ''">{{user?.secondSurname}}</td>
                     <td>{{user?.gender}}</td>
-                    <td>{{user?.birthDate}}</td>
+                    <td>{{user?.birthDate | date: "MM/dd/yyyy"}}</td>
                 </tr>
                 </div>
                 </mat-tab>
@@ -86,7 +86,7 @@
         <button mat-button [routerLink]="'../'">
             <mat-icon>keyboard_return</mat-icon>
         </button>
-        <button mat-button>
+        <button mat-button (click)="openEdit(user)">
             <mat-icon>edit</mat-icon>
         </button>
         <button mat-button (click)="openRemoveDialog(user)">

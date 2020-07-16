@@ -45,13 +45,13 @@
                         <td>
                             <mat-form-field appearance="outline">
                                 <mat-label>Birthday</mat-label>
-                                <input matInput type="text" [value]="user?.birthDate">
+                                <input matInput type="text" [value]="user?.birthDate | date: 'MM/dd/yyyy'">
                             </mat-form-field>
                         </td>
                     </tr>
                     </div>
                     </mat-tab>
-                    <mat-tab label="Address">
+                    <mat-tab label=" Address">
                         <mat-icon> location_on</mat-icon>
                         <div class="example-large-box mat-elevation-z4">
                             <tr class="data">
@@ -152,7 +152,7 @@
             <button mat-button [routerLink]="'../../'">
                 <mat-icon>keyboard_return</mat-icon>
             </button>
-            <button mat-button [routerLink]="'../../'">
+            <button class="save" mat-button [routerLink]="'../../'">
                 <mat-icon>done_all</mat-icon>
             </button>
         </mat-card-actions>
