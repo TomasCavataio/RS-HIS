@@ -19,11 +19,18 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.id);
+    this.userService.toggleSpinner();
   }
+
+  getShowSpinner(): boolean {
+    return this.userService.showSpinner;
+  }
+
 
   getUser(id: string): void {
     this.userService.getUser(id).subscribe((data: User) => {
       this.user = data;
+      this.userService.showSpinner = false;
     });
   }
   openRemoveDialog(user: User): void {

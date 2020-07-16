@@ -1,12 +1,14 @@
 <div class="create-form-container">
     <!-- Template Driven Forms -->
+    <app-spinner *ngIf="getShowSpinner()"></app-spinner>
+
     <form #createUser="ngForm" (ngSubmit)="buildUser(userForm, addressForm, medicalForm)">
         <mat-horizontal-stepper #stepper>
             <mat-step [stepControl]="userForm">
                 <form [formGroup]="userForm">
                     <ng-template matStepLabel>Personal Information</ng-template>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Name</mat-label>
                             <input matInput formControlName="name" #name required autocomplete="off" autofocus>
                             <mat-error
@@ -14,7 +16,7 @@
                             </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Surname</mat-label>
                             <input matInput formControlName="surname" #surname required autocomplete="off">
                             <mat-error
@@ -22,12 +24,12 @@
                             </mat-error>
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Second Surname </mat-label>
                             <input matInput formControlName="secondSurname" #secondSurname autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Gender</mat-label>
                             <mat-select formControlName="gender" #gender>
                                 <mat-option value="'Male'">Male</mat-option>
@@ -37,14 +39,14 @@
                         </mat-form-field>
                     </div>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Birth Date</mat-label>
                             <input formControlName="birthday" matInput [matDatepicker]="birthday">
                             <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
                             <mat-datepicker #birthday></mat-datepicker>
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>User Type</mat-label>
                             <mat-select [(value)]="pacient" #userType formControlName="userType"
                                 (selectionChange)="verifyUser()" required>
@@ -53,7 +55,7 @@
                             </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field *ngIf="!isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="!isPacient" appearance="outline">
                             <mat-label>Professional Type</mat-label>
                             <mat-select formControlName="professionalType" #professionalType required>
                                 <mat-option value='Doctor'>Doctor</mat-option>
@@ -70,28 +72,28 @@
                 <form [formGroup]="addressForm">
                     <ng-template matStepperIcon="location_on" matStepLabel>Address Information</ng-template>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>City</mat-label>
                             <input formControlName="city" matInput #city autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Postal Code</mat-label>
                             <input formControlName="postalCode" matInput #postalCode autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Street</mat-label>
                             <input formControlName="street" matInput #street autocomplete="off">
                         </mat-form-field>
                     </div>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Street Number</mat-label>
                             <input formControlName="streetNumber" matInput #streetNumber autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>Door Number/Letter</mat-label>
                             <input formControlName="doorNumber" matInput #doorNumber autocomplete="off">
                         </mat-form-field>
@@ -104,38 +106,38 @@
                 <form [formGroup]="medicalForm">
                     <ng-template matStepLabel>Medical & Insurance Information</ng-template>
                     <div class="row">
-                        <mat-form-field *ngIf="!isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="!isPacient" appearance="outline">
                             <mat-label>Medical Board Number</mat-label>
                             <input matInput #medicalBoardNumber formControlName="medicalBoardNumber" autocomplete="off"
                                 [required]="!isPacient">
                         </mat-form-field>
 
-                        <mat-form-field *ngIf="isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance="outline">
                             <mat-label>NHC</mat-label>
                             <input matInput #nhc formControlName="nhc" autocomplete="off" [required]="isPacient">
                         </mat-form-field>
 
-                        <mat-form-field *ngIf="isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance="outline">
                             <mat-label>Insurance Company</mat-label>
                             <input matInput formControlName="insuranceCompanyName" #insuranceCompanyName
                                 autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field appearance="outline">
                             <mat-label>NIF</mat-label>
                             <input formControlName="nif" matInput #nif autocomplete="off">
                         </mat-form-field>
 
                     </div>
                     <div class="row">
-                        <mat-form-field *ngIf="isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance="outline">
                             <mat-label>Card Number</mat-label>
                             <input formControlName="cardNumber" matInput #cardNumber autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field *ngIf="isPacient" appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance="outline">
                             <mat-label>Insurance Type</mat-label>
-                            <mat-select formControlName="insuranceType" #insuranceType required>
+                            <mat-select formControlName="insuranceType" #insuranceType [required]="isPacient">
                                 <mat-option value='Health'>Health</mat-option>
                                 <mat-option value='Family'>Family</mat-option>
                                 <mat-option value='Dental'>Dental</mat-option>

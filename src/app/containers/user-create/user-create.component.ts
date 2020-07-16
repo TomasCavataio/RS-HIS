@@ -31,6 +31,10 @@ export class UserCreateComponent implements OnInit {
     this.userForm.controls.userType.setValue('pacient');
   }
 
+  getShowSpinner(): boolean {
+    return this.userService.showSpinner;
+  }
+
   createForm(): void {
     this.userForm = this.formBuilder.group({
       name: ['', Validators.required],

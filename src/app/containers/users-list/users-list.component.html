@@ -1,5 +1,7 @@
 <div class="mat-elevation-z8">
 
+    <app-spinner *ngIf="getShowSpinner()"></app-spinner>
+
     <mat-table [dataSource]="users" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="position">
@@ -13,7 +15,7 @@
             <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- surName Column -->
         <ng-container matColumnDef="surname">
             <mat-header-cell *matHeaderCellDef> Surname </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.firstSurname}} </mat-cell>

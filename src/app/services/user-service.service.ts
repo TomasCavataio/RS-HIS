@@ -11,11 +11,17 @@ export class UserService {
   userSubject = new BehaviorSubject<User[]>([]);
   user$ = this.userSubject.asObservable();
   users: User[];
+  showSpinner = true;
   constructor(private http: HttpClient) { }
+
+  toggleSpinner(): void {
+    this.showSpinner = true;
+  }
 
   getUsers(): void {
     this.http.get<User[]>(`${this.url}`).subscribe(data => {
       this.userSubject.next(data); this.users = data;
+      this.showSpinner = false;
     });
   }
 

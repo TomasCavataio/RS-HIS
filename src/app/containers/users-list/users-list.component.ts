@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent implements OnInit, OnChanges {
+export class UsersListComponent implements OnInit {
   users: Observable<User[]>;
   displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
   dataSource = this.users;
@@ -26,14 +26,11 @@ export class UsersListComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.userService.getUsers();
     this.users = this.userService.user$;
+    this.userService.toggleSpinner();
   }
 
-  ngOnChanges(): void {
-    this.userService.user$ = this.users;
-  }
-
-  getUsers(): void {
-    this.userService.getUsers();
+  getShowSpinner(): boolean {
+    return this.userService.showSpinner;
   }
 
   openRemoveDialog(user: User): void {

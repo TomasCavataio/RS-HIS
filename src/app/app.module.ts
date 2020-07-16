@@ -27,6 +27,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -39,7 +40,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     UserDetailComponent,
     UserCreateComponent,
     UserEditComponent,
-    DialogComponent
+    DialogComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,8 @@
 @import "../user-detail/user-detail.component.scss";
+
+tr {
+    display: flex;
+    .secondRow {
+        justify-content: space-evenly;
+    }
+}

@@ -109,28 +109,6 @@
       "insuranceCompanyName": "",
       "insuranceType": "",
       "cardNumber": ""
-    },
-    {
-      "name": "Tomas",
-      "firstSurname": "Cavataio",
-      "secondSurname": "PEPE",
-      "gender": "'Female'",
-      "birthDate": "2020-07-14T22:00:00.000Z",
-      "professionalType": "Doctor",
-      "address": {
-        "city": "",
-        "postalCode": "",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": ""
-      },
-      "medicalBoardNumber": "76Y543",
-      "nhc": "",
-      "insuranceCompanyName": "",
-      "nif": "76543",
-      "cardNumber": "",
-      "insuranceType": "",
-      "id": 8
     }
   ]
 }

@@ -2,10 +2,10 @@
     <header>
         <label class="newUser"> New User
             <button color="primary" mat-fab [routerLink]="'users/new'">
-                <mat-icon>add </mat-icon>
+                <mat-icon>person_add </mat-icon>
             </button>
         </label>
-        <label class="multipleDelete"> Delete Doctors
+        <label *ngIf="router.url == '/users'" class="multipleDelete"> Delete Doctors
             <button mat-fab color="warn" (click)="deleteDoctors()">
                 <mat-icon>delete </mat-icon>
             </button>
