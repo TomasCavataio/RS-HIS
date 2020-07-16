@@ -6,21 +6,8 @@ form {
         display: flex;
         justify-content: space-evenly;
     }
-    mat-form-field {
-        margin-right: 10%;
-        input {
-            background-color: #303030;
-            color: white;
-            height: 2em;
-            padding: 1em;
-            border-radius: 22px;
-        }
-        mat-select {
-            background-color: #303030;
-            color: white;
-            height: 2em;
-            padding: 1em;
-            border-radius: 22px;
-        }
+
+    .doneMessage {
+        color: $primary;
     }
 }

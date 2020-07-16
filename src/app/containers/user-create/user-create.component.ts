@@ -42,8 +42,8 @@ export class UserCreateComponent implements OnInit {
       city: '', street: '', streetNumber: '', doorNumber: '', postalCode: ''
     });
     this.medicalForm = this.formBuilder.group({
-      nhc: ['', Validators.nullValidator],
-      medicalBoard: ['', Validators.nullValidator],
+      nhc: [''],
+      medicalBoardNumber: [''],
       insuranceCompanyName: '', nif: '', cardNumber: '', insuranceType: ''
     });
   }
@@ -64,9 +64,9 @@ export class UserCreateComponent implements OnInit {
         streetNumber: addressData.streetNumber,
         doorNumber: addressData.doorNumber
       },
-      medicalBoardNumber: medicalData.medicalBoard,
+      medicalBoardNumber: medicalData.medicalBoardNumber,
       nhc: medicalData.nhc,
-      insuranceCompanyName: medicalData.insuranceCompany,
+      insuranceCompanyName: medicalData.insuranceCompanyName,
       nif: medicalData.nif,
       cardNumber: medicalData.cardNumber,
       insuranceType: medicalData.insuranceType

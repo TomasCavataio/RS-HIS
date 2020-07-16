@@ -7,7 +7,7 @@ mat-table {
         &:hover {
             transition: 0.8s;
             font-size: large;
-            color: white;
+            color: black;
             cursor: default;
         }
     }
@@ -20,7 +20,7 @@ mat-table {
             &:hover {
                 transition: 0.8s;
                 font-size: initial;
-                color: white;
+                color: black;
                 cursor: pointer;
             }
             .deleteCheckbox {

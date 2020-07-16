@@ -111,12 +111,12 @@
       "cardNumber": ""
     },
     {
-      "name": "Vlad",
-      "firstSurname": "Dracula",
-      "secondSurname": "",
-      "gender": "'Male'",
-      "birthDate": "2020-06-30T22:00:00.000Z",
-      "professionalType": "'Doctor'",
+      "name": "Tomas",
+      "firstSurname": "Cavataio",
+      "secondSurname": "PEPE",
+      "gender": "'Female'",
+      "birthDate": "2020-07-14T22:00:00.000Z",
+      "professionalType": "Doctor",
       "address": {
         "city": "",
         "postalCode": "",
@@ -124,7 +124,13 @@
         "streetNumber": "",
         "doorNumber": ""
       },
-      "id": 12
+      "medicalBoardNumber": "76Y543",
+      "nhc": "",
+      "insuranceCompanyName": "",
+      "nif": "76543",
+      "cardNumber": "",
+      "insuranceType": "",
+      "id": 8
     }
   ]
 }

@@ -63,7 +63,6 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <button mat-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -98,8 +97,6 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -109,7 +106,7 @@
                     <div class="row">
                         <mat-form-field *ngIf="!isPacient" appearance=" fill">
                             <mat-label>Medical Board Number</mat-label>
-                            <input matInput #medicalBoard formControlName="medicalBoard" autocomplete="off"
+                            <input matInput #medicalBoardNumber formControlName="medicalBoardNumber" autocomplete="off"
                                 [required]="!isPacient">
                         </mat-form-field>
 
@@ -118,7 +115,7 @@
                             <input matInput #nhc formControlName="nhc" autocomplete="off" [required]="isPacient">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance=" fill">
                             <mat-label>Insurance Company</mat-label>
                             <input matInput formControlName="insuranceCompanyName" #insuranceCompanyName
                                 autocomplete="off">
@@ -131,28 +128,33 @@
 
                     </div>
                     <div class="row">
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance=" fill">
                             <mat-label>Card Number</mat-label>
                             <input formControlName="cardNumber" matInput #cardNumber autocomplete="off">
                         </mat-form-field>
 
-                        <mat-form-field appearance=" fill">
+                        <mat-form-field *ngIf="isPacient" appearance=" fill">
                             <mat-label>Insurance Type</mat-label>
-                            <input formControlName="insuranceType" matInput #insuranceType autocomplete="off">
+                            <mat-select formControlName="insuranceType" #insuranceType required>
+                                <mat-option value='Health'>Health</mat-option>
+                                <mat-option value='Family'>Family</mat-option>
+                                <mat-option value='Dental'>Dental</mat-option>
+                            </mat-select>
                         </mat-form-field>
                     </div>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="stepper.reset()">Reset</button>
                     </div>
                 </form>
             </mat-step>
-            <mat-step>
+            <mat-step [stepControl]="(userForm && medicalForm)">
                 <ng-template matStepLabel>Done</ng-template>
-                <p>You are now done.</p>
+                <h2 class="doneMessage"
+                    [hidden]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoardNumber.pristine || medicalForm.controls.medicalBoardNumber.invalid))">
+                    You are now done.</h2>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button mat-raised-button
+                        [disabled]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoardNumber.pristine || medicalForm.controls.medicalBoardNumber.invalid))"
+                        color="primary" type="submit">Create User</button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>
@@ -160,9 +162,6 @@
         <br>
         <br>
 
-        <button mat-raised-button
-            [disabled]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoard.pristine || medicalForm.controls.medicalBoard.invalid))"
-            color="warn" type="submit">Create User</button>
-        <button mat-raised-button color="primary" type="submit" [routerLink]="'../'">Cancel</button>
+        <button mat-raised-button color="warn" type="submit" [routerLink]="'../'">Cancel</button>
     </form>
 </div>

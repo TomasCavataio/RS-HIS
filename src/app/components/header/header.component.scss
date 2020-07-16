@@ -1,9 +1,10 @@
+@import "src/colors";
 .navbar {
     height: 10%;
     header {
         margin: 1em;
         .newUser {
-            background-color: #00ff82f2;
+            background-color: $addLabel;
             padding: 20px;
             user-select: none;
             border-radius: 22px;
@@ -12,7 +13,7 @@
             }
         }
         .multipleDelete {
-            background-color: red;
+            background-color: $deleteLabel;
             padding: 20px;
             user-select: none;
             border-radius: 22px;

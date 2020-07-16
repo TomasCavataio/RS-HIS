@@ -25,6 +25,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { UserEditComponent } from './containers/user-edit/user-edit.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -35,7 +37,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FooterComponent,
     UsersListComponent,
     UserDetailComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserEditComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

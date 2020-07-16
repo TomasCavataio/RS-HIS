@@ -3,6 +3,8 @@ import { UserService } from 'src/app/services/user-service.service';
 import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { User } from 'src/app/models/user';
 export class UserDetailComponent implements OnInit {
   user: User;
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.id);
@@ -22,6 +24,17 @@ export class UserDetailComponent implements OnInit {
   getUser(id: string): void {
     this.userService.getUser(id).subscribe((data: User) => {
       this.user = data;
+    });
+  }
+  openRemoveDialog(user: User): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} with ID: ${user.id}` }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
+      }
     });
   }
 

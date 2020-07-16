@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, Input } from '@angular/core';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +6,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users-list',
@@ -14,12 +16,12 @@ import { Observable } from 'rxjs';
 })
 export class UsersListComponent implements OnInit, OnChanges {
   users: Observable<User[]>;
-  displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete', 'checkbox'];
+  displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
   dataSource = this.users;
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @Input() user: User;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.userService.getUsers();
@@ -34,10 +36,23 @@ export class UsersListComponent implements OnInit, OnChanges {
     this.userService.getUsers();
   }
 
-  deleteUser(user: User): void {
-    const confirmation = confirm(`Confirm that you want ${user.name} ${user.firstSurname}, with id: ${user.id} to be deleted`);
-    if (confirmation) {
-      this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
-    }
+  openRemoveDialog(user: User): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} with ID: ${user.id}` }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
+      }
+    });
+  }
+
+  openEdit(user: User): void {
+    this.router.navigate(['./users/edit', user.id]);
+  }
+
+  deleteUser(id: string): void {
+    this.userService.deleteUser(id).subscribe();
   }
 }
