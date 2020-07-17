@@ -1,6 +1,6 @@
 <div class="create-form-container">
     <!-- Template Driven Forms -->
-    <app-spinner *ngIf="getShowSpinner()"></app-spinner>
+    <!--  <app-spinner *ngIf="getShowSpinner()"></app-spinner> -->
 
     <form #createUser="ngForm" (ngSubmit)="addUser()">
         <mat-horizontal-stepper #stepper>
@@ -42,14 +42,14 @@
 
                         <mat-form-field appearance="outline">
                             <mat-label>User Type</mat-label>
-                            <mat-select [(value)]="pacient" #userType formControlName="userType"
+                            <mat-select [(value)]="patient" #userType formControlName="userType"
                                 (selectionChange)="verifyUser(userType.value)" required>
-                                <mat-option value="pacient">Pacient</mat-option>
+                                <mat-option value="patient">Patient</mat-option>
                                 <mat-option value="professional">Professional</mat-option>
                             </mat-select>
                         </mat-form-field>
 
-                        <mat-form-field *ngIf="!isPacient" appearance="outline">
+                        <mat-form-field *ngIf="!isPatient" appearance="outline">
                             <mat-label>Professional Type</mat-label>
                             <mat-select formControlName="professionalType" #professionalType required>
                                 <mat-option value='Doctor'>Doctor</mat-option>
@@ -64,6 +64,7 @@
                         </mat-form-field>
                     </div>
                     <div>
+                        <button mat-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -98,49 +99,72 @@
                         </mat-form-field>
                     </div>
                     <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
+            <!-- Medical Step  -->
             <mat-step [stepControl]="medicalForm">
                 <form [formGroup]="medicalForm">
                     <ng-template matStepLabel>Medical & Insurance Information</ng-template>
                     <div *ngIf="userForm.valid">
                         <div class="row">
-                            <mat-form-field *ngIf="!isPacient" appearance="outline">
+                            <mat-form-field *ngIf="!isPatient" appearance="outline">
                                 <mat-label>Medical Board Number</mat-label>
                                 <input matInput #medicalBoardNumber formControlName="medicalBoardNumber"
-                                    autocomplete="off" [required]="!isPacient">
+                                    autocomplete="off" [required]="!isPatient">
                             </mat-form-field>
 
-                            <mat-form-field *ngIf="isPacient" appearance="outline">
+                            <mat-form-field *ngIf="isPatient" appearance="outline">
                                 <mat-label>NHC</mat-label>
-                                <input matInput #nhc formControlName="nhc" autocomplete="off" [required]="isPacient">
-                            </mat-form-field>
-
-                            <mat-form-field *ngIf="isPacient" appearance="outline">
-                                <mat-label>Insurance Company</mat-label>
-                                <input matInput formControlName="insuranceCompanyName" #insuranceCompanyName
-                                    autocomplete="off">
-                            </mat-form-field>
-
-                        </div>
-                        <div class="row">
-                            <mat-form-field *ngIf="isPacient" appearance="outline">
-                                <mat-label>Card Number</mat-label>
-                                <input formControlName="cardNumber" matInput #cardNumber autocomplete="off">
-                            </mat-form-field>
-
-                            <mat-form-field *ngIf="isPacient" appearance="outline">
-                                <mat-label>Insurance Type</mat-label>
-                                <mat-select formControlName="insuranceType" #insuranceType [required]="isPacient">
-                                    <mat-option value='Health'>Health</mat-option>
-                                    <mat-option value='Family'>Family</mat-option>
-                                    <mat-option value='Dental'>Dental</mat-option>
-                                </mat-select>
+                                <input matInput #nhc formControlName="nhc" autocomplete="off" [required]="isPatient">
                             </mat-form-field>
                         </div>
-                        <div>
+
+
+
+
+
+                        <div formArrayName="insurances">
+                            <button mat-button type="button" (click)="addInsurance()">Añadir</button>
+                            <div *ngFor="let insurance of insuranceList().controls; let i = index" [formGroupName]="i">
+
+                                <mat-form-field *ngIf="isPatient" appearance="outline">
+                                    <mat-label>Insurance Company</mat-label>
+                                    <input matInput formControlName="insuranceCompanyName" #insuranceCompanyName
+                                        autocomplete="off">
+                                </mat-form-field>
+
+                                <mat-form-field *ngIf="isPatient" appearance="outline">
+                                    <mat-label>Card Number</mat-label>
+                                    <input formControlName="cardNumber" matInput #cardNumber autocomplete="off">
+                                </mat-form-field>
+
+                                <mat-form-field *ngIf="isPatient" appearance="outline">
+                                    <mat-label>Insurance Type</mat-label>
+                                    <mat-select formControlName="insuranceType" #insuranceType [required]="isPatient">
+                                        <mat-option value='Health'>Health</mat-option>
+                                        <mat-option value='Family'>Family</mat-option>
+                                        <mat-option value='Dental'>Dental</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
                         </div>
+
+
+
+
+
+
+
+
+                    </div>
+
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>

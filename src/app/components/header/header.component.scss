@@ -1,28 +1,31 @@
 @import "src/colors";
-.navbar {
-    height: 10%;
-    header {
-        margin: 1em;
-        min-width: 40em;
-        overflow-x: auto;
-        .newUser {
-            background-color: $addLabel;
-            padding: 20px;
-            user-select: none;
-            border-radius: 22px;
-            button {
-                margin-left: 1%;
-            }
-        }
-        .multipleDelete {
-            background-color: $deleteLabel;
-            padding: 20px;
-            user-select: none;
-            border-radius: 22px;
-            margin-left: 2em;
-            button {
-                margin-left: 1%;
-            }
+header {
+    min-width: 100vw;
+    min-height: 10vh;
+    overflow-x: auto;
+    .newUser {
+        background-color: $addLabel;
+        padding: 20px;
+        user-select: none;
+        border-radius: 22px;
+        button {
+            margin-left: 1%;
         }
     }
+    .multipleDelete {
+        background-color: $deleteLabel;
+        padding: 20px;
+        user-select: none;
+        border-radius: 22px;
+        margin-left: 2em;
+        button {
+            margin-left: 1%;
+        }
+    }
+}
+.logo {
+    position: fixed;
+    max-width: 5em;
+    right: 5%;
+    top: -1%;
 }

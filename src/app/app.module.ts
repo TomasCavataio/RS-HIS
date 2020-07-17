@@ -28,6 +28,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { TitleCasePipe } from '@angular/common';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -62,9 +65,11 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatNativeDateModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    Ng2SearchPipeModule
   ],
-  providers: [UserService],
+  providers: [UserService, TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

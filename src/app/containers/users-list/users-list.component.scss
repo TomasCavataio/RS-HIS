@@ -1,9 +1,9 @@
 @import "src/colors";
 
 mat-table {
-    min-width: 40em;
-    overflow-x: auto;
-
+    max-height: 40em;
+    overflow: auto;
+    padding-bottom: 25%;
     mat-header-cell {
         font-size: initial;
         &:hover {
@@ -34,3 +34,8 @@ mat-table {
         }
     }
 }
+/* .mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+} */

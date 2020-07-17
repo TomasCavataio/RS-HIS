@@ -1,0 +1,18 @@
+@import "src/colors";
+.footer {
+    width: 100vw;
+    background-color: $background;
+    height: 5vh;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    p {
+        color: black;
+        padding-top: 1%;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}

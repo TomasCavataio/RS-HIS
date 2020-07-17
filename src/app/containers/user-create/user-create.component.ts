@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges, ViewChild, ElementRef } from '@angular/co
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/user-service.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormArray } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { User } from 'src/app/models/user';
@@ -19,8 +19,8 @@ export class UserCreateComponent implements OnInit {
   userForm: FormGroup;
   medicalForm: FormGroup;
   addressForm: FormGroup;
-  isPacient: boolean;
-  pacient: string;
+  isPatient: boolean;
+  patient: string;
   maxDate = new Date();
   user = {};
 
@@ -30,7 +30,7 @@ export class UserCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.isPacient = true;
+    this.isPatient = true;
   }
 
   getShowSpinner(): boolean {
@@ -50,19 +50,42 @@ export class UserCreateComponent implements OnInit {
     this.medicalForm = this.formBuilder.group({
       nhc: [''],
       medicalBoardNumber: [''],
-      insuranceCompanyName: '', cardNumber: '', insuranceType: ''
+      insurances: this.formBuilder.array([])
+      // insuranceCompanyName: '', cardNumber: '', insuranceType: ''
     });
   }
 
+  insuranceList(): FormArray {
+    return this.medicalForm.get('insurances') as FormArray;
+  }
+
+  addInsurance(): void {
+    const insurances = this.medicalForm.get('insurances') as FormArray;
+    insurances.push(this.formBuilder.group({
+      insuranceCompanyName: '', cardNumber: '', insuranceType: ''
+    })
+    );
+  }
+
   verifyUser(userType: string): void {
-    if (userType === 'pacient') {
-      this.isPacient = true;
+    if (userType === 'patient') {
+      this.isPatient = true;
     } else {
-      this.isPacient = false;
+      this.isPatient = false;
     }
   }
 
-  formToUser(form: FormGroup, attribute: string = ''): void {
+  validateUSer(): void {
+    if (this.isPatient) {
+      this.userForm.removeControl('professionalType');
+      this.medicalForm.removeControl('medicalBoardNumber');
+    } else {
+      this.medicalForm.removeControl('nhc');
+      this.medicalForm.removeControl('insuranceType');
+    }
+  }
+
+  buildUser(form: FormGroup, attribute: string = ''): void {
     if (!attribute) {
       this.user = Object.assign(this.user, form.value);
     } else {
@@ -71,13 +94,15 @@ export class UserCreateComponent implements OnInit {
   }
 
   getUser(): void {
-    this.formToUser(this.userForm);
-    this.formToUser(this.addressForm, 'address');
-    this.formToUser(this.medicalForm);
+    this.buildUser(this.userForm);
+    this.buildUser(this.addressForm, 'address');
+    this.buildUser(this.medicalForm);
   }
 
   addUser(): void {
+    this.validateUSer();
     this.getUser();
+    console.log(this.user);
     this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
   }
 

@@ -113,7 +113,7 @@
     {
       "name": "Andres",
       "firstSurname": "Iniesta",
-      "userType": "pacient",
+      "userType": "patient",
       "secondSurname": "",
       "gender": "",
       "birthDate": "",
@@ -136,7 +136,7 @@
     {
       "name": "Floyd ",
       "firstSurname": "Mayweather",
-      "userType": "pacient",
+      "userType": "patient",
       "secondSurname": "",
       "gender": "Male",
       "birthDate": "2020-04-02T22:00:00.000Z",
@@ -157,32 +157,9 @@
       "id": 12
     },
     {
-      "name": "Doctor",
-      "firstSurname": "Casa",
-      "userType": "professional",
-      "secondSurname": "Housey",
-      "gender": "Male",
-      "birthDate": "1997-05-11T22:00:00.000Z",
-      "professionalType": "Doctor",
-      "address": {
-        "city": "El Casar",
-        "street": "C/ Alcalde Julio Gonzalo",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "19170"
-      },
-      "nhc": "6868",
-      "medicalBoardNumber": "12345654321",
-      "insuranceCompanyName": "",
-      "nif": "",
-      "cardNumber": "",
-      "insuranceType": "",
-      "id": 13
-    },
-    {
       "name": "Evan",
       "firstSurname": "Cugat",
-      "userType": "pacient",
+      "userType": "patient",
       "secondSurname": "",
       "gender": "Other",
       "birthDate": "2020-07-07T22:00:00.000Z",
@@ -205,7 +182,7 @@
     {
       "name": "Claudia",
       "firstSurname": "Real",
-      "userType": "pacient",
+      "userType": "patient",
       "secondSurname": "Gil",
       "gender": "Female",
       "birthDate": "1996-07-20T22:00:00.000Z",
@@ -224,6 +201,188 @@
       "cardNumber": "8889996668",
       "insuranceType": "Health",
       "id": 15
+    },
+    {
+      "name": "ytrfe",
+      "firstSurname": "erfwe",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "ctfvygbhunijmo",
+      "medicalBoardNumber": "qwertyuio",
+      "insuranceCompanyName": "",
+      "cardNumber": "",
+      "insuranceType": "Health",
+      "id": 22
+    },
+    {
+      "name": "werty",
+      "firstSurname": "yjmhngf",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "yuhgt",
+      "insuranceCompanyName": "",
+      "cardNumber": "as",
+      "insuranceType": "Health",
+      "id": 23
+    },
+    {
+      "name": "Bro",
+      "firstSurname": "IsThisOK",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "professionalType": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "LOL",
+      "medicalBoardNumber": "",
+      "insuranceCompanyName": "",
+      "cardNumber": "",
+      "insuranceType": "Health",
+      "id": 24
+    },
+    {
+      "name": "bro",
+      "firstSurname": "browsom",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "sdfghjk",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "12345677",
+      "insuranceCompanyName": "ytre",
+      "cardNumber": "as",
+      "insuranceType": "Health",
+      "id": 25
+    },
+    {
+      "name": "rgfveds",
+      "firstSurname": "gbrfvdrte",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "2345678",
+      "insurances": [
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "",
+          "insuranceType": "Health"
+        },
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "",
+          "insuranceType": "Family"
+        },
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "",
+          "insuranceType": "Family"
+        },
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 26
+    },
+    {
+      "name": "etybgrfved",
+      "firstSurname": "bgrfvdcsgt",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "rthg bfdvc",
+      "insurances": [
+        {
+          "insuranceCompanyName": "gt",
+          "cardNumber": "",
+          "insuranceType": "Health"
+        },
+        {
+          "insuranceCompanyName": "Pepino",
+          "cardNumber": "",
+          "insuranceType": "Family"
+        }
+      ],
+      "id": 27
+    },
+    {
+      "name": "thbgfvd",
+      "firstSurname": "gfvrdc",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "rvfed",
+      "insurances": [
+        {
+          "insuranceCompanyName": "erfv",
+          "cardNumber": "grfv",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 28
     }
   ]
 }

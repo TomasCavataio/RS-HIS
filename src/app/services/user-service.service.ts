@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
+import { TitleCasePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class UserService {
   user$ = this.userSubject.asObservable();
   users: User[];
   showSpinner = true;
-  constructor(private http: HttpClient) { }
+  searchText: string;
+
+  constructor(private http: HttpClient, private titleCase: TitleCasePipe) { }
 
   toggleSpinner(): void {
     this.showSpinner = true;
@@ -53,5 +56,15 @@ export class UserService {
 
   editUser(user): Observable<User> {
     return this.http.put<User>(`${this.url}/${user.id}`, user);
+  }
+
+  findUser(name: string): void {
+    const params = {
+      name
+    };
+    this.http.get<User[]>(`${this.url}/`, { params })
+      .subscribe(data => {
+        this.userSubject.next(data);
+      });
   }
 }

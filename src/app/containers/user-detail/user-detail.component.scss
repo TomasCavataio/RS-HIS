@@ -1,5 +1,18 @@
 * {
     text-align: center;
+    .container {
+        height: 55vh;
+        overflow: auto;
+        margin-left: 5%;
+        table {
+            .matTab {
+                max-width: 90vw;
+                .form-container {
+                    padding-top: 2em;
+                }
+            }
+        }
+    }
     .detail-card {
         width: 70%;
         position: absolute;
@@ -13,18 +26,54 @@
     }
     mat-card-content {
         text-align: -webkit-center;
+    }
+    .userData {
+        display: grid;
         .dataHeader {
-            display: flex;
-            justify-content: space-evenly;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
         }
         .data {
-            display: flex;
-            justify-content: space-evenly;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
         }
     }
+    .addressData {
+        display: grid;
+        .dataHeader {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .data {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    .insuranceData {
+        display: grid;
+        .dataHeader {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .data {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .medicalData {
+        display: grid;
+        .dataHeader {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .data {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
     .actions {
         display: flex;
         justify-content: space-evenly;
-        margin-top: 5%;
     }
 }

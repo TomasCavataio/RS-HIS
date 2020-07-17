@@ -6,9 +6,11 @@
             </button>
         </label>
         <label *ngIf="router.url == '/users'" class="multipleDelete"> Delete Doctors
-            <button mat-fab color="warn" (click)="deleteDoctors()">
+            <button mat-fab color="warn" (click)="openRemoveDialog()">
                 <mat-icon>delete </mat-icon>
             </button>
         </label>
     </header>
+    <img src="../../../assets/logo.png" alt="" class="logo" srcset="">
+
 </div>

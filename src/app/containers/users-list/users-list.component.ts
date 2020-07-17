@@ -20,6 +20,7 @@ export class UsersListComponent implements OnInit {
   dataSource = this.users;
 
   @Input() user: User;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
@@ -51,5 +52,11 @@ export class UsersListComponent implements OnInit {
 
   deleteUser(id: string): void {
     this.userService.deleteUser(id).subscribe();
+  }
+
+  findUser(filterValue: string): void {
+    const firstLetter = filterValue.charAt(0).toUpperCase();
+    filterValue = firstLetter + filterValue.substring(1);
+    this.userService.findUser(filterValue);
   }
 }

@@ -1,11 +1,24 @@
 @import "../user-detail/user-detail.component.scss";
 
-tr {
-    display: flex;
-    .secondRow {
-        justify-content: space-evenly;
+.container {
+    height: 60vh;
+    overflow: auto;
+    margin-left: 5%;
+    table {
+        .matTab {
+            max-width: 90vw;
+            .form-container {
+                padding-top: 2em;
+            }
+        }
+        tr {
+            display: flex;
+            .secondRow {
+                justify-content: space-evenly;
+            }
+        }
+        .save:active {
+            color: green;
+        }
     }
-}
-.save:active {
-    color: green;
 }
