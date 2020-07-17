@@ -51,7 +51,6 @@ export class UserCreateComponent implements OnInit {
       nhc: [''],
       medicalBoardNumber: [''],
       insurances: this.formBuilder.array([])
-      // insuranceCompanyName: '', cardNumber: '', insuranceType: ''
     });
   }
 
@@ -102,7 +101,6 @@ export class UserCreateComponent implements OnInit {
   addUser(): void {
     this.validateUSer();
     this.getUser();
-    console.log(this.user);
     this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
   }
 

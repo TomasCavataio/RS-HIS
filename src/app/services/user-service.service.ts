@@ -62,9 +62,13 @@ export class UserService {
     const params = {
       name
     };
-    this.http.get<User[]>(`${this.url}/`, { params })
-      .subscribe(data => {
-        this.userSubject.next(data);
-      });
+    if (!name) {
+      this.getUsers();
+    } else {
+      this.http.get<User[]>(`${this.url}/`, { params })
+        .subscribe(data => {
+          this.userSubject.next(data);
+        });
+    }
   }
 }

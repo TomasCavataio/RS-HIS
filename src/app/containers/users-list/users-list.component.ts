@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class UsersListComponent implements OnInit {
   users: Observable<User[]>;
   displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
-  dataSource = this.users;
+  dataSource = new MatTableDataSource<Observable<User>>();
 
   @Input() user: User;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -28,6 +28,7 @@ export class UsersListComponent implements OnInit {
     this.userService.getUsers();
     this.users = this.userService.user$;
     this.userService.toggleSpinner();
+    this.dataSource.paginator = this.paginator;
   }
 
   getShowSpinner(): boolean {

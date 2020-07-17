@@ -1,8 +1,8 @@
-<mat-card class="detail-card">
+<mat-card class="detail-card" *ngIf="user">
     <mat-card-header>
         <div class="header">
-            <mat-card-title>{{user?.name}}, {{user?.firstSurname}}</mat-card-title>
-            <mat-card-subtitle>ID: {{user?.id}}</mat-card-subtitle>
+            <mat-card-title>{{user.name}}, {{user.firstSurname}}</mat-card-title>
+            <mat-card-subtitle>ID: {{user.id}}</mat-card-subtitle>
         </div>
     </mat-card-header>
     <mat-card-content class="container">
@@ -16,16 +16,16 @@
                 <tr class="dataHeader">
                     <td>Name</td>
                     <td>Surname</td>
-                    <td *ngIf="user?.secondSurname != ''">Second Surname</td>
+                    <td *ngIf="user.secondSurname != ''">Second Surname</td>
                     <td>Gender</td>
                     <td>Birth-Day</td>
                 </tr>
                 <tr class="data">
-                    <td>{{user?.name}}</td>
-                    <td>{{user?.firstSurname}}</td>
-                    <td *ngIf="user?.secondSurname != ''">{{user?.secondSurname}}</td>
-                    <td>{{user?.gender}}</td>
-                    <td>{{user?.birthDate | date: "MM/dd/yyyy"}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.firstSurname}}</td>
+                    <td *ngIf="user.secondSurname != ''">{{user.secondSurname}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.birthDate | date: "MM/dd/yyyy"}}</td>
                 </tr>
                 </div>
                 </mat-tab>
@@ -39,10 +39,10 @@
                             <td>Postal Code</td>
                         </tr>
                         <tr class="data">
-                            <td>{{user?.address.city}}</td>
-                            <td>{{user?.address.street}}, {{user?.address.streetNumber}}</td>
-                            <td>{{user?.address.doorNumber}}</td>
-                            <td>{{user?.address.postalCode}}</td>
+                            <td>{{user.address.city}}</td>
+                            <td>{{user.address.street}}, {{user.address.streetNumber}}</td>
+                            <td>{{user.address.doorNumber}}</td>
+                            <td>{{user.address.postalCode}}</td>
                         </tr>
                     </div>
                 </mat-tab>
@@ -50,29 +50,29 @@
                     <mat-icon>favorite_border</mat-icon>
                     <div class="form-container medicalData example-large-box mat-elevation-z4">
                         <tr class="dataHeader">
-                            <td *ngIf="user?.professionalType != ''">User</td>
-                            <td *ngIf="user?.medicalBoardNumber != ''">Medical Board Number</td>
-                            <td *ngIf="user?.nhc != ''">NHC</td>
-                            <td *ngIf="user?.insurances['cardNumber'] != ''"> Card Number</td>
+                            <td *ngIf="user.professionalType">User</td>
+                            <td *ngIf="user.medicalBoardNumber">Medical Board Number</td>
+                            <td *ngIf="user.nhc">NHC</td>
                         </tr>
                         <tr class="data">
-                            <td *ngIf="user?.professionalType != ''">{{user?.professionalType}}</td>
-                            <td *ngIf="user?.medicalBoardNumber != ''">{{user?.medicalBoardNumber}}</td>
-                            <td *ngIf="user?.nhc != ''">{{user?.nhc}}</td>
-                            <td *ngIf="user?.insurances['cardNumber'] != ''">{{user?.insurances['cardNumber']}}</td>
+                            <td *ngIf="user.professionalType">{{user.professionalType}}</td>
+                            <td *ngIf="user.medicalBoardNumber">{{user.medicalBoardNumber}}</td>
+                            <td *ngIf="user.nhc">{{user.nhc}}</td>
                         </tr>
                     </div>
                 </mat-tab>
-                <mat-tab *ngIf="user?.professionalType == ''" label="Insurance">
+                <mat-tab *ngIf="user.nhc" label="Insurance">
                     <mat-icon> attach_money</mat-icon>
                     <div class="form-container insuranceData example-large-box mat-elevation-z4">
                         <tr class="dataHeader">
                             <td>Insurance Company</td>
                             <td>Insurance Type</td>
+                            <td *ngIf="user.insurances['cardNumber'] != ''"> Card Number</td>
                         </tr>
-                        <tr class="data">
-                            <td>{{user?.insurances['insuranceCompanyName']}}</td>
-                            <td>{{user?.insurances['insuranceType']}}</td>
+                        <tr class="data" *ngFor="let insurance of user.insurances">
+                            <td>{{insurance.insuranceCompanyName}}</td>
+                            <td>{{insurance.insuranceType}}</td>
+                            <td *ngIf="insurance.cardNumber != ''">{{insurance.cardNumber}}</td>
                         </tr>
                     </div>
                 </mat-tab>

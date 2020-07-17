@@ -1,7 +1,7 @@
 @import "src/colors";
 
 mat-table {
-    max-height: 40em;
+    max-height: 34em;
     overflow: auto;
     padding-bottom: 25%;
     mat-header-cell {
@@ -34,8 +34,8 @@ mat-table {
         }
     }
 }
-/* .mat-paginator-sticky {
+.mat-paginator-sticky {
     bottom: 0px;
     position: sticky;
     z-index: 10;
-} */
+}

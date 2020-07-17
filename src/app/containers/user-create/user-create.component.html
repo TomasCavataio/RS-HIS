@@ -122,12 +122,9 @@
                             </mat-form-field>
                         </div>
 
-
-
-
-
                         <div formArrayName="insurances">
-                            <button mat-button type="button" (click)="addInsurance()">Añadir</button>
+                            <button *ngIf="isPatient" mat-button type="button" (click)="addInsurance()">Add
+                                Insurance</button>
                             <div *ngFor="let insurance of insuranceList().controls; let i = index" [formGroupName]="i">
 
                                 <mat-form-field *ngIf="isPatient" appearance="outline">
@@ -152,14 +149,6 @@
 
                             </div>
                         </div>
-
-
-
-
-
-
-
-
                     </div>
 
                     <div>

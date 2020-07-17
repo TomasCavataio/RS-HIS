@@ -383,6 +383,189 @@
         }
       ],
       "id": 28
+    },
+    {
+      "name": "Alonso",
+      "firstSurname": "PutoAMo",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "2345678",
+      "insurances": [
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "tgref",
+          "insuranceType": "Health"
+        },
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "rvfe",
+          "insuranceType": "Family"
+        },
+        {
+          "insuranceCompanyName": "",
+          "cardNumber": "rvefw",
+          "insuranceType": "Dental"
+        }
+      ],
+      "id": 29
+    },
+    {
+      "name": "Alonso",
+      "firstSurname": "MothaFocka",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "r"
+      },
+      "nhc": "edcs",
+      "insurances": [],
+      "id": 30
+    },
+    {
+      "name": "aver",
+      "firstSurname": "Address",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "El Casar",
+        "street": "C/ Alcalde Julio Gonzalo",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "19170"
+      },
+      "nhc": "78963",
+      "insurances": [],
+      "id": 31
+    },
+    {
+      "name": "rfvedcw",
+      "firstSurname": "rvfdce",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "ef"
+      },
+      "nhc": "tgrfe",
+      "insurances": [
+        {
+          "insuranceCompanyName": "efdw",
+          "cardNumber": "ref",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 32
+    },
+    {
+      "name": "PRUEBA",
+      "firstSurname": "PRUEBA",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "El Casar",
+        "street": "C/ Alcalde Julio Gonzalo",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "19170"
+      },
+      "nhc": "ASDFGH",
+      "insurances": [
+        {
+          "insuranceCompanyName": "Adeslas",
+          "cardNumber": "23456789",
+          "insuranceType": "Health"
+        },
+        {
+          "insuranceCompanyName": "Sanitas",
+          "cardNumber": "",
+          "insuranceType": "Dental"
+        }
+      ],
+      "id": 33
+    },
+    {
+      "name": "ASDFG",
+      "firstSurname": "ASDFGH",
+      "userType": "patient",
+      "secondSurname": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "nhc": "ASDFG",
+      "insurances": [
+        {
+          "insuranceCompanyName": "ADESLAS",
+          "cardNumber": "123456",
+          "insuranceType": "Health"
+        },
+        {
+          "insuranceCompanyName": "DJNANO",
+          "cardNumber": "9876543",
+          "insuranceType": "Family"
+        }
+      ],
+      "id": 34
+    },
+    {
+      "name": "Claudia ",
+      "firstSurname": "Real ",
+      "userType": "patient",
+      "secondSurname": "Gil",
+      "gender": "Female",
+      "birthDate": "1996-07-20T22:00:00.000Z",
+      "nif": "09132140J",
+      "address": {
+        "city": "Madrid",
+        "street": "Av.Monte Segovia",
+        "streetNumber": "69",
+        "doorNumber": "Z",
+        "postalCode": "286060"
+      },
+      "nhc": "12345666",
+      "insurances": [
+        {
+          "insuranceCompanyName": "Adeslas",
+          "cardNumber": "789693547",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 35
     }
   ]
 }
