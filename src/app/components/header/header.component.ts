@@ -11,10 +11,14 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  mobile = false;
 
   constructor(private userService: UserService, public router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    if (window.screen.width <= 425) {
+      this.mobile = true;
+    }
   }
 
 

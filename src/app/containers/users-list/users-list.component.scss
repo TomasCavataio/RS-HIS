@@ -1,41 +1,59 @@
-@import "src/colors";
+@import "src/assets/sass/colors";
 
-mat-table {
-    max-height: 34em;
+.container {
     overflow: auto;
-    padding-bottom: 25%;
-    mat-header-cell {
-        font-size: initial;
-        &:hover {
-            transition: 0.8s;
-            font-size: large;
-            color: black;
-            cursor: default;
-        }
-    }
-    mat-row {
-        &:focus {
-            outline: $primary solid 3px;
-        }
-        mat-cell {
-            margin: 0 1%;
+    width: 99%;
+    margin: auto;
+    mat-table {
+        max-height: 34em;
+        overflow: auto;
+        padding-bottom: 25%;
+        mat-header-cell {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: initial;
+            min-width: 7em;
+            border-width: 0;
+            border-bottom-width: 1px;
+            border-style: solid;
+            position: sticky;
+            background-color: white;
             &:hover {
                 transition: 0.8s;
-                font-size: initial;
+                font-size: large;
                 color: black;
-                cursor: pointer;
-            }
-            .deleteCheckbox {
-                margin-left: 1em;
+                cursor: default;
             }
         }
-        .edit {
-            margin: 5px;
+        mat-row {
+            min-width: fit-content;
+            &:focus {
+                outline: $primary solid 3px;
+            }
+            mat-cell {
+                margin: 0 1%;
+                min-width: 7em;
+                text-align: center;
+                justify-content: center;
+                &:hover {
+                    transition: 0.8s;
+                    font-size: initial;
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+            .edit {
+                display: flex;
+                flex-direction: row;
+                padding: 5px;
+            }
         }
     }
-}
-.mat-paginator-sticky {
-    bottom: 0px;
-    position: sticky;
-    z-index: 10;
+
+    .mat-paginator-sticky {
+        bottom: 0px;
+        position: sticky;
+        z-index: 10;
+    }
 }

@@ -1,4 +1,4 @@
-@import "src/colors";
+@import "src/assets/sass/colors";
 
 .sk-chase {
     width: 40px;
@@ -7,7 +7,7 @@
     top: 15%;
     left: 49%;
     animation: sk-chase 2.5s infinite linear both;
-    z-index: 99;
+    z-index: 999;
 }
 
 .sk-chase-dot {
