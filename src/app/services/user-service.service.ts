@@ -21,11 +21,8 @@ export class UserService {
     this.showSpinner = true;
   }
 
-  getUsers(): void {
-    this.http.get<User[]>(`${this.url}`).subscribe(data => {
-      this.userSubject.next(data); this.users = data;
-      this.showSpinner = false;
-    });
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}`);
   }
 
   getUser(id: string): Observable<User> {
@@ -58,17 +55,4 @@ export class UserService {
     return this.http.put<User>(`${this.url}/${user.id}`, user);
   }
 
-  findUser(name: string): void {
-    const params = {
-      name
-    };
-    if (!name) {
-      this.getUsers();
-    } else {
-      this.http.get<User[]>(`${this.url}/`, { params })
-        .subscribe(data => {
-          this.userSubject.next(data);
-        });
-    }
-  }
 }

@@ -2,12 +2,11 @@
 
 .container {
     overflow: auto;
-    width: 99%;
+    width: 100%;
     margin: auto;
     mat-table {
         max-height: 34em;
         overflow: auto;
-        padding-bottom: 25%;
         mat-header-cell {
             width: 100%;
             display: flex;
@@ -54,6 +53,10 @@
     .mat-paginator-sticky {
         bottom: 0px;
         position: sticky;
-        z-index: 10;
     }
+}
+
+.filter {
+    width: 90%;
+    margin: 0 5%;
 }

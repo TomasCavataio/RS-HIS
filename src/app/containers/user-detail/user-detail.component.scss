@@ -2,7 +2,6 @@
     text-align: center;
     .container {
         height: 55vh;
-        overflow: auto;
         margin-left: 5%;
         table {
             .matTab {
@@ -75,5 +74,45 @@
     .actions {
         display: flex;
         justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 450px) {
+    mat-card {
+        margin-top: 10%;
+    }
+    .data {
+        font-weight: 700;
+    }
+    .userData {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .dataHeader {
+            grid-template-columns: 1fr !important;
+        }
+        .data {
+            grid-template-columns: 1fr !important;
+        }
+    }
+    .addressData {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .dataHeader {
+            grid-template-columns: 1fr !important;
+        }
+        .data {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
+    .medicalData {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .dataHeader {
+            grid-template-columns: 1fr !important;
+        }
+        .data {
+            grid-template-columns: 1fr !important;
+        }
     }
 }

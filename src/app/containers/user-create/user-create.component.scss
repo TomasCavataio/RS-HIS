@@ -2,10 +2,12 @@
 
 .create-form-container {
     form {
+        overflow: auto;
         text-align: center;
         .row {
             display: flex;
             justify-content: space-evenly;
+            flex-wrap: wrap;
         }
         .doneMessage {
             color: $primary;
@@ -13,5 +15,14 @@
         ::ng-deep .mat-horizontal-stepper-header {
             pointer-events: none !important;
         }
+    }
+}
+
+@media (max-width: 425px) {
+    form {
+        overflow: auto;
+    }
+    .row {
+        justify-content: flex-start !important;
     }
 }

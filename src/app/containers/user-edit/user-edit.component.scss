@@ -1,14 +1,14 @@
 @import "../user-detail/user-detail.component.scss";
-
+* {
+    overflow: hidden;
+}
 .container {
-    height: 60vh;
-    overflow: auto;
-    margin-left: 5%;
     table {
         .matTab {
             max-width: 90vw;
             .form-container {
                 padding-top: 2em;
+                overflow: auto;
             }
         }
         tr {

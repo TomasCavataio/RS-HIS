@@ -4,6 +4,7 @@ import { UserDetailComponent } from './containers/user-detail/user-detail.compon
 import { UserCreateComponent } from './containers/user-create/user-create.component';
 import { UsersListComponent } from './containers/users-list/users-list.component';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
+import { Error404Component } from './components/error404/error404.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'users/new', component: UserCreateComponent },
   { path: 'users/edit/:id', component: UserEditComponent },
   { path: 'users/:id', component: UserDetailComponent },
+  { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: 'error404' }
 ];
 

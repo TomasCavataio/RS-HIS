@@ -31,6 +31,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TitleCasePipe } from '@angular/common';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Error404Component } from './components/error404/error404.component';
 
 
 
@@ -44,7 +45,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     UserCreateComponent,
     UserEditComponent,
     DialogComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,

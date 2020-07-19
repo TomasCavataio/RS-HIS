@@ -1,5 +1,5 @@
-<mat-form-field>
-    <input matInput (keyup)="findUser($event.target.value)" placeholder="Filter">
+<mat-form-field class="filter">
+    <input matInput (keyup)="findUser($event)" placeholder="Find your user" autocomplete="off">
 </mat-form-field>
 
 <div class="mat-elevation-z8 container">
@@ -9,7 +9,7 @@
     <mat-table [dataSource]="users" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
         </ng-container>
 

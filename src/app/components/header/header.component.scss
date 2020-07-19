@@ -1,7 +1,7 @@
 @import "src/assets/sass/colors";
 header {
     min-width: 100vw;
-    min-height: 10vh;
+    margin: 1% 0 0.5% 1%;
     overflow-x: auto;
     .newUser {
         background-color: $addLabel;
@@ -25,7 +25,28 @@ header {
 }
 .logo {
     position: fixed;
-    max-width: 5em;
+    max-width: 6em;
     right: 5%;
     top: -1%;
+}
+
+@media (max-width: 425px) {
+    .newUser {
+        display: none;
+    }
+    .create {
+        margin-right: 2%;
+    }
+    .multipleDelete {
+        display: none;
+    }
+}
+
+@media (min-width: 426px) {
+    .create {
+        display: none;
+    }
+    .delete {
+        display: none;
+    }
 }

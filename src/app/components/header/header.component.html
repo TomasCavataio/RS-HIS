@@ -1,11 +1,11 @@
 <div class="navbar">
     <header>
-        <label *ngIf="!mobile" class="newUser"> New User
+        <label class="newUser"> New User
             <button color="primary" mat-fab [routerLink]="'users/new'">
                 <mat-icon>person_add </mat-icon>
             </button>
         </label>
-        <button *ngIf="mobile" color="primary" mat-fab [routerLink]="'users/new'">
+        <button class="create" color="primary" mat-fab [routerLink]="'users/new'">
             <mat-icon>person_add </mat-icon>
         </button>
         <label *ngIf="router.url == '/users' && !mobile" class="multipleDelete"> Delete Doctors
@@ -13,7 +13,7 @@
                 <mat-icon>delete </mat-icon>
             </button>
         </label>
-        <button *ngIf="mobile" mat-fab color="warn" (click)="openRemoveDialog()">
+        <button class="delete" *ngIf="router.url == '/users'" mat-fab color="warn" (click)="openRemoveDialog()">
             <mat-icon>delete </mat-icon>
         </button>
     </header>

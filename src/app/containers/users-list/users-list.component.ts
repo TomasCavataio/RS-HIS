@@ -15,10 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements OnInit {
-  users: Observable<User[]>;
+  users: MatTableDataSource<User>;
   displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
-  usersData = this.users as Observable<User[]>;
-  dataSource = this.users;
 
   @Input() user: User;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -26,10 +24,13 @@ export class UsersListComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.userService.getUsers();
-    this.users = this.userService.user$;
+    this.userService.getUsers().subscribe(data => {
+      this.userService.userSubject.next(data);
+      this.users = new MatTableDataSource<User>(data);
+      this.users.paginator = this.paginator;
+      this.userService.showSpinner = false;
+    });
     this.userService.toggleSpinner();
-    // this.dataSource.paginator = this.paginator;
   }
 
   getShowSpinner(): boolean {
@@ -56,9 +57,8 @@ export class UsersListComponent implements OnInit {
     this.userService.deleteUser(id).subscribe();
   }
 
-  findUser(filterValue: string): void {
-    const firstLetter = filterValue.charAt(0).toUpperCase();
-    filterValue = firstLetter + filterValue.substring(1);
-    this.userService.findUser(filterValue);
+  findUser(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.users.filter = filterValue.trim().toLowerCase();
   }
 }

@@ -123,8 +123,8 @@
                         </div>
 
                         <div formArrayName="insurances">
-                            <button *ngIf="isPatient" mat-button type="button" (click)="addInsurance()">Add
-                                Insurance</button>
+                            <button color="primary" *ngIf="isPatient" mat-button type="button" (click)="addInsurance()">
+                                Add Insurance <mat-icon>add</mat-icon> </button>
                             <div *ngFor="let insurance of insuranceList().controls; let i = index" [formGroupName]="i">
 
                                 <mat-form-field *ngIf="isPatient" appearance="outline">
@@ -166,6 +166,9 @@
                     <button mat-raised-button
                         [disabled]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoardNumber.pristine || medicalForm.controls.medicalBoardNumber.invalid))"
                         color="primary" type="submit">Create User <mat-icon> add</mat-icon></button>
+                </div>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>

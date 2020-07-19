@@ -16,6 +16,9 @@ import { User } from 'src/app/models/user';
   }]
 })
 export class UserCreateComponent implements OnInit {
+  ALPHANUMERIC_TRIMMED_REGEX = '^[a-zÀ-úA-Z0-9_]+( [a-zÀ-úA-Z0-9_]+)*$';
+  ALPHA_TRIMMED_REGEX = '^[a-zÀ-úA-Z_]+( [a-zÀ-úA-Z_]+)*$';
+  NIF_AND_PASSPORT_REGEX = '[A-Za-z]{3}[0-9]{6}[A-Za-z]?$|[0-9]{8}[A-Za-z]';
   userForm: FormGroup;
   medicalForm: FormGroup;
   addressForm: FormGroup;
@@ -23,6 +26,7 @@ export class UserCreateComponent implements OnInit {
   patient: string;
   maxDate = new Date();
   user = {};
+  isMobile = false;
 
   constructor(private http: HttpClient, private userService: UserService, private router: Router, private formBuilder: FormBuilder) {
 
@@ -31,6 +35,9 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.isPatient = true;
+    if (window.screen.width <= 425) {
+      this.isMobile = true;
+    }
   }
 
   getShowSpinner(): boolean {
@@ -39,17 +46,18 @@ export class UserCreateComponent implements OnInit {
 
   createForm(): void {
     this.userForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      firstSurname: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern(this.ALPHA_TRIMMED_REGEX)]],
+      firstSurname: ['', [Validators.required, Validators.pattern(this.ALPHA_TRIMMED_REGEX)]],
       userType: ['', Validators.required],
-      secondSurname: '', gender: '', birthDate: '', professionalType: '', nif: ''
+      secondSurname: '', gender: '', birthDate: '', professionalType: '',
+      nif: ['']
     });
     this.addressForm = this.formBuilder.group({
       city: '', street: '', streetNumber: '', doorNumber: '', postalCode: ''
     });
     this.medicalForm = this.formBuilder.group({
-      nhc: [''],
-      medicalBoardNumber: [''],
+      nhc: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
+      medicalBoardNumber: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
       insurances: this.formBuilder.array([])
     });
   }
