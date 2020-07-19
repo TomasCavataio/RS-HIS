@@ -1,0 +1,14 @@
+@import "../../../assets/sass/colors";
+.errorMessage {
+    width: 100%;
+    text-align: center;
+    color: $primary;
+    h1 {
+        text-shadow: 1px 1px white;
+        font-size: xx-large;
+    }
+    img {
+        border-radius: 22px;
+        box-shadow: 10px 10px 8px 10px;
+    }
+}

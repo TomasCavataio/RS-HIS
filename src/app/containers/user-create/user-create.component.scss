@@ -1,6 +1,8 @@
 @import "src/assets/sass/colors";
 
 .create-form-container {
+    overflow: auto;
+    max-height: 80vh;
     form {
         overflow: auto;
         text-align: center;

@@ -1,12 +1,15 @@
 <div class="navbar">
     <header>
-        <label class="newUser"> New User
+        <label *ngIf="router.url != '/error404'" class="newUser"> New User
             <button color="primary" mat-fab [routerLink]="'users/new'">
                 <mat-icon>person_add </mat-icon>
             </button>
         </label>
-        <button class="create" color="primary" mat-fab [routerLink]="'users/new'">
+        <button *ngIf="router.url != '/error404'" class="create" color="primary" mat-fab [routerLink]="'users/new'">
             <mat-icon>person_add </mat-icon>
+        </button>
+        <button *ngIf="router.url == '/error404'" color="primary" mat-fab [routerLink]="'users/'">
+            <mat-icon>home </mat-icon>
         </button>
         <label *ngIf="router.url == '/users' && !mobile" class="multipleDelete"> Delete Doctors
             <button mat-fab color="warn" (click)="openRemoveDialog()">
