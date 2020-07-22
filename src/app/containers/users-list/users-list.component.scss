@@ -4,6 +4,9 @@
     overflow: auto;
     width: 100%;
     margin: auto;
+    .tabGroup {
+        background-color: white;
+    }
     mat-table {
         max-height: 30em;
         overflow: auto;

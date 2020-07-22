@@ -171,46 +171,6 @@
       "id": 6
     },
     {
-      "name": "Bill ",
-      "firstSurname": "Gates",
-      "userType": "patient",
-      "secondSurname": "",
-      "gender": "Male",
-      "birthDate": "1958-03-11T23:00:00.000Z",
-      "nif": "34567",
-      "address": {
-        "city": "Sillicon Valley",
-        "street": "Microsoft",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "8858525"
-      },
-      "nhc": "858525",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Microsoft",
-          "cardNumber": "8526",
-          "insuranceType": "Health"
-        },
-        {
-          "insuranceCompanyName": "Xbox",
-          "cardNumber": "666",
-          "insuranceType": "Family"
-        },
-        {
-          "insuranceCompanyName": "Windows",
-          "cardNumber": "6325",
-          "insuranceType": "Family"
-        },
-        {
-          "insuranceCompanyName": "HP",
-          "cardNumber": "6231568",
-          "insuranceType": "Health"
-        }
-      ],
-      "id": 7
-    },
-    {
       "name": "Hubert ",
       "firstSurname": "Blaine ",
       "userType": "professional",
@@ -251,51 +211,6 @@
       "id": 9
     },
     {
-      "name": "Mark ",
-      "firstSurname": "Zuckerberg",
-      "userType": "patient",
-      "secondSurname": "",
-      "gender": "Male",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "city": "",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": ""
-      },
-      "nhc": "6543",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Facebook",
-          "cardNumber": "bgtf",
-          "insuranceType": "Health"
-        }
-      ],
-      "id": 10
-    },
-    {
-      "name": "Bug",
-      "firstSurname": "Existe?",
-      "userType": "professional",
-      "secondSurname": "",
-      "gender": "",
-      "birthDate": "",
-      "professionalType": "Nurse",
-      "nif": "",
-      "address": {
-        "city": "",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": ""
-      },
-      "medicalBoardNumber": "PRUEBA",
-      "insurances": [],
-      "id": 11
-    },
-    {
       "name": "Leonardo",
       "firstSurname": "DaVinci",
       "userType": "patient",
@@ -319,6 +234,66 @@
         }
       ],
       "id": 12
+    },
+    {
+      "name": "Dr",
+      "firstSurname": "Who",
+      "userType": "professional",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "1998-02-02T23:00:00.000Z",
+      "professionalType": "Doctor",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "medicalBoardNumber": "234567890",
+      "insurances": [],
+      "id": 13
+    },
+    {
+      "name": "Dr",
+      "firstSurname": "House",
+      "userType": "professional",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "",
+      "professionalType": "Doctor",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "medicalBoardNumber": "345789876",
+      "insurances": [],
+      "id": 14
+    },
+    {
+      "name": "Werner",
+      "firstSurname": "Heisenberg",
+      "userType": "professional",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "",
+      "professionalType": "Doctor",
+      "nif": "",
+      "address": {
+        "city": "Berlin",
+        "street": "Germany",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "medicalBoardNumber": "23456789",
+      "insurances": [],
+      "id": 15
     }
   ]
 }
