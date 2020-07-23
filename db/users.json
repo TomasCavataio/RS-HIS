@@ -26,31 +26,6 @@
       "id": 1
     },
     {
-      "name": "Claudia",
-      "firstSurname": "Real",
-      "userType": "Patient",
-      "secondSurname": "Gil",
-      "gender": "Female",
-      "birthDate": "1996-07-20T22:00:00.000Z",
-      "nif": "09132140J",
-      "address": {
-        "city": "Madrid",
-        "street": "Av.Monte Segovia",
-        "streetNumber": "69",
-        "doorNumber": "Z",
-        "postalCode": "286060"
-      },
-      "nhc": "12345666",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Adeslas",
-          "cardNumber": "789693547",
-          "insuranceType": "Health"
-        }
-      ],
-      "id": 2
-    },
-    {
       "name": "Tomas",
       "firstSurname": "Cavataio",
       "userType": "Patient",
@@ -76,12 +51,12 @@
       "id": 3
     },
     {
-      "name": "Claudia",
-      "firstSurname": "Real",
+      "name": "Batman",
+      "firstSurname": "Wayne",
       "userType": "Patient",
-      "secondSurname": "Gil",
-      "gender": "Female",
-      "birthDate": "1996-07-20T22:00:00.000Z",
+      "secondSurname": "Bruce",
+      "gender": "Male",
+      "birthDate": "2020-07-08T22:00:00.000Z",
       "nif": "09132140J",
       "address": {
         "city": "Madrid",
@@ -98,11 +73,11 @@
           "insuranceType": "Health"
         }
       ],
-      "id": 2
+      "id": 4
     },
     {
-      "name": "Tomas",
-      "firstSurname": "Cavataio",
+      "name": "Thor",
+      "firstSurname": "Odinson",
       "userType": "Patient",
       "secondSurname": "Deluca",
       "gender": "Male",
@@ -123,7 +98,7 @@
           "insuranceType": "Health"
         }
       ],
-      "id": 3
+      "id": 5
     }
   ],
   "professionals": [
@@ -147,8 +122,8 @@
       "id": 1
     },
     {
-      "name": "Amadeus",
-      "firstSurname": "Mozart",
+      "name": "Ludwig",
+      "firstSurname": "Beethoven",
       "userType": "Professional",
       "secondSurname": "",
       "gender": "Male",

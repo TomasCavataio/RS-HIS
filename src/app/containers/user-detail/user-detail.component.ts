@@ -28,8 +28,8 @@ export class UserDetailComponent implements OnInit {
     return this.userService.showSpinner;
   }
 
-  openEdit(user: User): void {
-    this.router.navigate(['./users/edit', user.id]);
+  openEdit(user: User, endPoint: string): void {
+    this.router.navigate([`./users/edit/${endPoint}/${user.id}`]);
   }
 
   getUser(): void {

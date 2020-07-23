@@ -17,7 +17,7 @@ import { Patient } from 'src/app/models/patient';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements OnInit {
-  users: User[][];
+  users: Observable<User[][]>;
   tab = true;
   professionalsData: MatTableDataSource<User>;
   patientsData: MatTableDataSource<User>;
@@ -32,7 +32,7 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe(data => {
       this.userService.userSubject.next(data);
-      this.users = data;
+      this.users = this.userService.user$;
       this.getPatients(data);
       this.professionalsData = new MatTableDataSource<User>(this.getProfessionals(data));
       this.patientsData = new MatTableDataSource<User>(this.getPatients(data));
@@ -83,8 +83,8 @@ export class UsersListComponent implements OnInit {
     return professionals;
   }
 
-  openEdit(user: User): void {
-    this.router.navigate(['./users/edit', user.id]);
+  openEdit(user: User, endPoint: string): void {
+    this.router.navigate([`./users/edit/${endPoint}/${user.id}`]);
   }
 
   deleteUser(id: string, endPoint: string): void {

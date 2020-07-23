@@ -33,6 +33,9 @@
             &:focus {
                 outline: $primary solid 3px;
             }
+            &:hover {
+                background-color: $listHover;
+            }
             mat-cell {
                 margin: 0 1%;
                 min-width: 7em;

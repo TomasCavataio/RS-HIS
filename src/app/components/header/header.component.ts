@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteDoctors().subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteDoctors();
       }
     });
   }

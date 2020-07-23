@@ -86,7 +86,7 @@
         <button mat-button [routerLink]="'../../'">
             <mat-icon>keyboard_return</mat-icon>
         </button>
-        <button mat-button (click)="openEdit(user)">
+        <button mat-button (click)="openEdit(user, route.snapshot.params.endPoint)">
             <mat-icon>edit</mat-icon>
         </button>
         <button mat-button (click)="openRemoveDialog(user, route.snapshot.params.endPoint)">

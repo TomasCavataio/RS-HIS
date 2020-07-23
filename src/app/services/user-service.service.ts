@@ -4,7 +4,7 @@ import { User } from '../models/user';
 import { Patient } from '../models/patient';
 import { Professional } from '../models/professional';
 import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
-import { TitleCasePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class UserService {
   showSpinner = true;
   searchText: string;
 
-  constructor(private http: HttpClient, private titleCase: TitleCasePipe) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   toggleSpinner(): void {
     this.showSpinner = true;
@@ -51,26 +51,33 @@ export class UserService {
     return this.http.delete<User>(`${this.url}/${endPoint}/${id}`);
   }
 
-  /*   deleteDoctors(): any {
-      const doctors: User[] = this.users.filter(
-        (user: User) => user.professionalType === 'Doctor'
+  deleteDoctors(): void {
+    this.getProfessionals().subscribe((data) => {
+      const doctors: Professional[] = data.filter(
+        (professional: Professional) => professional.professionalType === 'Doctor'
       );
       const doctorObservables: Observable<User>[] = [];
       for (const doctor of doctors) {
-        doctorObservables.push(this.deleteUser(doctor.id));
+        doctorObservables.push(this.deleteUser(doctor.id, 'professionals'));
       }
       forkJoin(doctorObservables).subscribe(
-        () => this.getUsers(),
+        () =>
+          this.getUsers().subscribe(console.log),
         (error) => console.error(error)
       );
-    } */
+    });
+  }
 
   addUser(user): Observable<User> {
     return this.http.post<User>(`${this.url}/`, user);
   }
 
   editUser(user): Observable<User> {
-    return this.http.put<User>(`${this.url}/${user.id}`, user);
+    if (user.nhc) {
+      return this.http.put<User>(`${this.url}/patients/${user.id}`, user);
+    } else {
+      return this.http.put<User>(`${this.url}/professionals/${user.id}`, user);
+    }
   }
 
 }

@@ -15,7 +15,7 @@ export class UserEditComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.getUser(this.route.snapshot.params.id);
+    this.getUser();
     this.userService.toggleSpinner();
   }
 
@@ -23,8 +23,11 @@ export class UserEditComponent implements OnInit {
     return this.userService.showSpinner;
   }
 
-  getUser(id: string): void {
-    this.userService.getUser(id).subscribe((data: User) => {
+  getUser(): void {
+    const routerParams = this.route.snapshot.params;
+    const id = routerParams.id;
+    const endPoint = routerParams.endPoint;
+    this.userService.getUser(id, endPoint).subscribe((data: User) => {
       this.user = data;
       this.userService.showSpinner = false;
     });

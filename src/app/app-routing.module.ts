@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'users', pathMatch: 'full' },
   { path: 'users', component: UsersListComponent },
   { path: 'users/new', component: UserCreateComponent },
-  { path: 'users/edit/:id', component: UserEditComponent },
+  { path: 'users/edit/:endPoint/:id', component: UserEditComponent },
   { path: 'users/:endPoint/:id', component: UserDetailComponent },
   { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: 'error404' }

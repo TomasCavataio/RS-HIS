@@ -108,40 +108,40 @@
                         <mat-icon>favorite_border</mat-icon>
                         <div class="form-container example-large-box mat-elevation-z4">
                             <tr class="data">
-                                <td *ngIf="user.professionalType">
+                                <td *ngIf="user['professionalType']">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Professional Type</mat-label>
-                                        <mat-select [value]="user.professionalType" name="professionalType"
-                                            [(ngModel)]="user.professionalType">
+                                        <mat-select [value]="user['professionalType']" name="professionalType"
+                                            [(ngModel)]="user['professionalType']">
                                             <mat-option value='Doctor'>Doctor</mat-option>
                                             <mat-option value='Nurse'>Nurse</mat-option>
                                             <mat-option value='Administrative'>Administrative</mat-option>
                                         </mat-select>
                                     </mat-form-field>
                                 </td>
-                                <td *ngIf="user.professionalType">
+                                <td *ngIf="user['professionalType']">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Medical Board Number</mat-label>
-                                        <input matInput type="text" [value]="user.medicalBoardNumber"
-                                            name="medicalBoardNumber" [(ngModel)]="user.medicalBoardNumber">
+                                        <input matInput type="text" [value]="user['medicalBoardNumber']"
+                                            name="medicalBoardNumber" [(ngModel)]="user['medicalBoardNumber']">
                                     </mat-form-field>
                                 </td>
                             </tr>
                             <tr class="secondRow">
-                                <td *ngIf="!user.professionalType">
+                                <td *ngIf="!user['professionalType']">
                                     <mat-form-field appearance="outline">
                                         <mat-label>History Clinic Number</mat-label>
-                                        <input matInput type="text" [value]="user.nhc" name="nhc"
-                                            [(ngModel)]="user.nhc">
+                                        <input matInput type="text" [value]="user['nhc']" name="nhc"
+                                            [(ngModel)]="user['nhc']">
                                     </mat-form-field>
                                 </td>
                             </tr>
                         </div>
                     </mat-tab>
-                    <mat-tab *ngIf="!user.professionalType" label="Insurance">
+                    <mat-tab *ngIf="!user['professionalType']" label="Insurance">
                         <mat-icon> attach_money</mat-icon>
                         <div class="form-container example-large-box mat-elevation-z4">
-                            <tr *ngFor="let insurance of user.insurances" class="secondRow data">
+                            <tr *ngFor="let insurance of user['insurances']" class="secondRow data">
                                 <td>
                                     <mat-form-field appearance="outline">
                                         <mat-label>Insurance Company</mat-label>
@@ -161,7 +161,7 @@
                                         </mat-select>
                                     </mat-form-field>
                                 </td>
-                                <td *ngIf="!user.professionalType">
+                                <td *ngIf="!user['professionalType']">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Card Number</mat-label>
                                         <input matInput type="text" [value]="insurance.cardNumber"
@@ -178,7 +178,7 @@
             </table>
         </mat-card-content>
         <mat-card-actions class="actions">
-            <button mat-button [routerLink]="'../../'">
+            <button mat-button [routerLink]="'../../../'">
                 <mat-icon>keyboard_return</mat-icon>
             </button>
             <button class="save" mat-button (click)="editUser(user)">
