@@ -7,7 +7,7 @@
     <app-spinner *ngIf="getShowSpinner()"></app-spinner>
 
     <div class="tabGroup">
-        <mat-tab-group #tabGroup (selectedTabChange)="changeTab()">
+        <mat-tab-group #tabGroup>
             <mat-tab label="Patients">
 
                 <mat-table [dataSource]="patientsData" class="mat-elevation-z8">
@@ -25,7 +25,7 @@
 
                     <!-- surName Column -->
                     <ng-container matColumnDef="surname">
-                        <mat-header-cell *matHeaderCellDef> Sufrname </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Surname </mat-header-cell>
                         <mat-cell *matCellDef="let element"> {{element.firstSurname}} </mat-cell>
                     </ng-container>
 
@@ -49,13 +49,14 @@
                     <ng-container matColumnDef="delete">
                         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                            <button (click)="openRemoveDialog(element)" mat-fab color="warn">
+                            <button (click)="openRemoveDialog(element, 'patients')" mat-fab color="warn">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['./', row.id]"></mat-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['./patients', row.id]">
+                    </mat-row>
 
                 </mat-table>
                 <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
@@ -107,13 +108,14 @@
                     <ng-container matColumnDef="delete">
                         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                            <button (click)="openRemoveDialog(element)" mat-fab color="warn">
+                            <button (click)="openRemoveDialog(element, 'professionals')" mat-fab color="warn">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="secondTableColumns; sticky: true"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: secondTableColumns" [routerLink]="['./', row.id]"></mat-row>
+                    <mat-row *matRowDef="let row; columns: secondTableColumns"
+                        [routerLink]="['./professionals', row.id]"></mat-row>
 
                 </mat-table>
                 <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">

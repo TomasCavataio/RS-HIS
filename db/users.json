@@ -1,9 +1,9 @@
 {
-  "users": [
+  "patients": [
     {
-      "name": "Claudia ",
-      "firstSurname": "Real ",
-      "userType": "patient",
+      "name": "Claudia",
+      "firstSurname": "Real",
+      "userType": "Patient",
       "secondSurname": "Gil",
       "gender": "Female",
       "birthDate": "1996-07-20T22:00:00.000Z",
@@ -26,264 +26,116 @@
       "id": 1
     },
     {
-      "name": "Thor",
-      "firstSurname": "Odinson",
-      "userType": "patient",
-      "secondSurname": "Bjornson",
-      "gender": "Male",
-      "birthDate": "1930-01-01T00:00:00.000Z",
-      "nif": "777",
+      "name": "Claudia",
+      "firstSurname": "Real",
+      "userType": "Patient",
+      "secondSurname": "Gil",
+      "gender": "Female",
+      "birthDate": "1996-07-20T22:00:00.000Z",
+      "nif": "09132140J",
       "address": {
-        "city": "Asgard",
-        "street": "Mjolnir",
-        "streetNumber": "02",
-        "doorNumber": "G",
-        "postalCode": "7882"
+        "city": "Madrid",
+        "street": "Av.Monte Segovia",
+        "streetNumber": "69",
+        "doorNumber": "Z",
+        "postalCode": "286060"
       },
-      "nhc": "777",
+      "nhc": "12345666",
       "insurances": [
         {
-          "insuranceCompanyName": "Thunder",
-          "cardNumber": "8778",
+          "insuranceCompanyName": "Adeslas",
+          "cardNumber": "789693547",
           "insuranceType": "Health"
-        },
-        {
-          "insuranceCompanyName": "Slayer",
-          "cardNumber": "7887",
-          "insuranceType": "Family"
         }
       ],
       "id": 2
     },
     {
-      "name": "Zeus",
-      "firstSurname": "Areius",
-      "userType": "professional",
-      "secondSurname": "",
+      "name": "Tomas",
+      "firstSurname": "Cavataio",
+      "userType": "Patient",
+      "secondSurname": "Deluca",
       "gender": "Male",
-      "birthDate": "1829-01-12T23:50:39.000Z",
-      "professionalType": "Administrative",
-      "nif": "850",
+      "birthDate": "1998-09-09T22:00:00.000Z",
+      "nif": "09132140J",
       "address": {
-        "city": "Olimpus",
-        "street": "",
-        "streetNumber": "ZZZZ",
-        "doorNumber": "",
-        "postalCode": "8520"
+        "city": "Madrid",
+        "street": "Av.Monte Segovia",
+        "streetNumber": "69",
+        "doorNumber": "Z",
+        "postalCode": "286060"
       },
-      "medicalBoardNumber": "955",
-      "insurances": [],
+      "nhc": "12345666",
+      "insurances": [
+        {
+          "insuranceCompanyName": "Sanitas",
+          "cardNumber": "789693547",
+          "insuranceType": "Health"
+        }
+      ],
       "id": 3
     },
     {
-      "name": "Genghis",
-      "firstSurname": "Khan",
-      "userType": "patient",
-      "secondSurname": "Mongol",
-      "gender": "Male",
-      "birthDate": "1689-06-07T23:50:39.000Z",
-      "nif": "741",
-      "address": {
-        "city": "Mongolia",
-        "street": "KhanStreet",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "78963"
-      },
-      "nhc": "555",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Blade",
-          "cardNumber": "5665",
-          "insuranceType": "Family"
-        },
-        {
-          "insuranceCompanyName": "Arrow",
-          "cardNumber": "66556",
-          "insuranceType": "Dental"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "Julius",
-      "firstSurname": "Ceasar",
-      "userType": "patient",
-      "secondSurname": "Cayo",
-      "gender": "Male",
-      "birthDate": "0202-05-02T23:50:39.000Z",
-      "nif": "05698",
-      "address": {
-        "city": "Rome",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "07896"
-      },
-      "nhc": "098987",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Imperator",
-          "cardNumber": "852",
-          "insuranceType": "Health"
-        },
-        {
-          "insuranceCompanyName": "Senator",
-          "cardNumber": "963",
-          "insuranceType": "Family"
-        },
-        {
-          "insuranceCompanyName": "Consul",
-          "cardNumber": "741",
-          "insuranceType": "Dental"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "Daenerys",
-      "firstSurname": "Targaryen",
-      "userType": "patient",
-      "secondSurname": "Khaleesi",
+      "name": "Claudia",
+      "firstSurname": "Real",
+      "userType": "Patient",
+      "secondSurname": "Gil",
       "gender": "Female",
-      "birthDate": "2020-07-05T22:00:00.000Z",
-      "nif": "14567",
+      "birthDate": "1996-07-20T22:00:00.000Z",
+      "nif": "09132140J",
       "address": {
-        "city": "Valyria",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "0003"
+        "city": "Madrid",
+        "street": "Av.Monte Segovia",
+        "streetNumber": "69",
+        "doorNumber": "Z",
+        "postalCode": "286060"
       },
-      "nhc": "00535",
+      "nhc": "12345666",
       "insurances": [
         {
-          "insuranceCompanyName": "Fires",
-          "cardNumber": "008",
-          "insuranceType": "Family"
-        },
-        {
-          "insuranceCompanyName": "Fire",
-          "cardNumber": "009",
-          "insuranceType": "Family"
-        }
-      ],
-      "id": 6
-    },
-    {
-      "name": "Hubert ",
-      "firstSurname": "Blaine ",
-      "userType": "professional",
-      "secondSurname": "Wolfe­schlegel­stein­hausen­berger­dorff",
-      "gender": "Male",
-      "birthDate": "2020-07-01T22:00:00.000Z",
-      "professionalType": "Nurse",
-      "nif": "13245",
-      "address": {
-        "city": "El Casar",
-        "street": "C/ Alcalde Julio Gonzalo",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "19170"
-      },
-      "medicalBoardNumber": "789987",
-      "insurances": [],
-      "id": 8
-    },
-    {
-      "name": "Edward",
-      "firstSurname": "Richtoffen",
-      "userType": "professional",
-      "secondSurname": "",
-      "gender": "Male",
-      "birthDate": "1918-04-14T23:00:00.000Z",
-      "professionalType": "Doctor",
-      "nif": "87654",
-      "address": {
-        "city": "El Casar",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "19170"
-      },
-      "medicalBoardNumber": "9876546",
-      "insurances": [],
-      "id": 9
-    },
-    {
-      "name": "Leonardo",
-      "firstSurname": "DaVinci",
-      "userType": "patient",
-      "secondSurname": "",
-      "gender": "Male",
-      "birthDate": "1411-05-04T23:50:39.000Z",
-      "nif": "YB6785443",
-      "address": {
-        "city": "Firenze",
-        "street": "Invenzione",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": "55259"
-      },
-      "nhc": "ABC234567",
-      "insurances": [
-        {
-          "insuranceCompanyName": "Italiani",
-          "cardNumber": "345678OP",
+          "insuranceCompanyName": "Adeslas",
+          "cardNumber": "789693547",
           "insuranceType": "Health"
         }
       ],
-      "id": 12
+      "id": 2
     },
     {
-      "name": "Dr",
-      "firstSurname": "Who",
-      "userType": "professional",
-      "secondSurname": "",
+      "name": "Tomas",
+      "firstSurname": "Cavataio",
+      "userType": "Patient",
+      "secondSurname": "Deluca",
       "gender": "Male",
-      "birthDate": "1998-02-02T23:00:00.000Z",
-      "professionalType": "Doctor",
-      "nif": "",
+      "birthDate": "1998-09-09T22:00:00.000Z",
+      "nif": "09132140J",
       "address": {
-        "city": "",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": ""
+        "city": "Madrid",
+        "street": "Av.Monte Segovia",
+        "streetNumber": "69",
+        "doorNumber": "Z",
+        "postalCode": "286060"
       },
-      "medicalBoardNumber": "234567890",
-      "insurances": [],
-      "id": 13
-    },
-    {
-      "name": "Dr",
-      "firstSurname": "House",
-      "userType": "professional",
-      "secondSurname": "",
-      "gender": "Male",
-      "birthDate": "",
-      "professionalType": "Doctor",
-      "nif": "",
-      "address": {
-        "city": "",
-        "street": "",
-        "streetNumber": "",
-        "doorNumber": "",
-        "postalCode": ""
-      },
-      "medicalBoardNumber": "345789876",
-      "insurances": [],
-      "id": 14
-    },
+      "nhc": "12345666",
+      "insurances": [
+        {
+          "insuranceCompanyName": "Sanitas",
+          "cardNumber": "789693547",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 3
+    }
+  ],
+  "professionals": [
     {
       "name": "Werner",
       "firstSurname": "Heisenberg",
-      "userType": "professional",
+      "userType": "Professional",
       "secondSurname": "",
       "gender": "Male",
-      "birthDate": "",
+      "birthDate": "1990-02-18T22:00:00.000Z",
       "professionalType": "Doctor",
-      "nif": "",
+      "nif": "09862580X",
       "address": {
         "city": "Berlin",
         "street": "Germany",
@@ -292,8 +144,26 @@
         "postalCode": ""
       },
       "medicalBoardNumber": "23456789",
-      "insurances": [],
-      "id": 15
+      "id": 1
+    },
+    {
+      "name": "Amadeus",
+      "firstSurname": "Mozart",
+      "userType": "Professional",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "1090-02-18T22:00:00.000Z",
+      "professionalType": "Doctor",
+      "nif": "09862580X",
+      "address": {
+        "city": "Viena",
+        "street": "Austria",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": ""
+      },
+      "medicalBoardNumber": "23456789",
+      "id": 2
     }
   ]
 }

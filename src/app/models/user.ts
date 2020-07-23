@@ -7,11 +7,7 @@ export interface User {
     birthDate: Date;
     nif: string;
     address: Address;
-    medicalBoardNumber: string;
-    professionalType: Proffessions;
-    insurances: Insurance[];
-    nhc: string;
-    checked: boolean;
+    userType: UserType;
 }
 
 export interface Address {
@@ -22,15 +18,5 @@ export interface Address {
     postalCode: string;
 }
 
-export interface Insurance {
-    insuranceCompanyName: string;
-    insuranceType: string;
-    cardNumber: string;
-}
-
 type Gender = 'Male' | 'Female' | 'Other';
-type Proffessions = 'Doctor' | 'Nurse' | 'Administrative';
-
-export interface UserResponse {
-    users: User[];
-}
+type UserType = 'Patient' | 'Professional';

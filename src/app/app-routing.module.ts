@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'users', component: UsersListComponent },
   { path: 'users/new', component: UserCreateComponent },
   { path: 'users/edit/:id', component: UserEditComponent },
-  { path: 'users/:id', component: UserDetailComponent },
+  { path: 'users/:endPoint/:id', component: UserDetailComponent },
   { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: 'error404' }
 ];

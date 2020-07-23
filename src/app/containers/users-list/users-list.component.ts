@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Patient } from 'src/app/models/patient';
 
 @Component({
   selector: 'app-users-list',
@@ -16,7 +17,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
   styleUrls: ['./users-list.component.scss']
 })
 export class UsersListComponent implements OnInit {
-  users: User[];
+  users: User[][];
   tab = true;
   professionalsData: MatTableDataSource<User>;
   patientsData: MatTableDataSource<User>;
@@ -46,23 +47,25 @@ export class UsersListComponent implements OnInit {
     return this.userService.showSpinner;
   }
 
-  openRemoveDialog(user: User): void {
+  openRemoveDialog(user: User, endPoint: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
       data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} with ID: ${user.id}` }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteUser(user.id).subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
       }
     });
   }
 
   getPatients(users): User[] {
     const patients: User[] = [];
-    for (const user of users) {
-      if (user.userType === 'patient') {
-        patients.push(user);
+    for (const types of users) {
+      for (const patient of types) {
+        if (patient.userType === 'Patient') {
+          patients.push(patient);
+        }
       }
     }
     return patients;
@@ -70,9 +73,11 @@ export class UsersListComponent implements OnInit {
 
   getProfessionals(users): User[] {
     const professionals: User[] = [];
-    for (const user of users) {
-      if (user.userType === 'professional') {
-        professionals.push(user);
+    for (const types of users) {
+      for (const professional of types) {
+        if (professional.userType === 'Professional') {
+          professionals.push(professional);
+        }
       }
     }
     return professionals;
@@ -82,8 +87,8 @@ export class UsersListComponent implements OnInit {
     this.router.navigate(['./users/edit', user.id]);
   }
 
-  deleteUser(id: string): void {
-    this.userService.deleteUser(id).subscribe();
+  deleteUser(id: string, endPoint: string): void {
+    this.userService.deleteUser(id, endPoint).subscribe();
   }
 
   findUser(event: Event): void {
@@ -92,7 +97,4 @@ export class UsersListComponent implements OnInit {
     this.professionalsData.filter = filterValue.trim().toLowerCase();
   }
 
-  changeTab(): void {
-    this.tab = !this.tab;
-  }
 }
