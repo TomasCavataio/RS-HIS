@@ -26,8 +26,8 @@
       "id": 1
     },
     {
-      "name": "Tomas",
-      "firstSurname": "Cavataio",
+      "name": "Neil",
+      "firstSurname": "Armstrong",
       "userType": "Patient",
       "secondSurname": "Deluca",
       "gender": "Male",
@@ -99,6 +99,31 @@
         }
       ],
       "id": 5
+    },
+    {
+      "name": "Nikola",
+      "firstSurname": "Tesla",
+      "userType": "Patient",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "2020-07-01T22:00:00.000Z",
+      "nif": "",
+      "address": {
+        "city": "",
+        "street": "C/ Alcalde Julio Gonzalo",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "19170"
+      },
+      "nhc": "23456789",
+      "insurances": [
+        {
+          "insuranceCompanyName": "Electro",
+          "cardNumber": "987654",
+          "insuranceType": "Health"
+        }
+      ],
+      "id": 6
     }
   ],
   "professionals": [
@@ -122,8 +147,8 @@
       "id": 1
     },
     {
-      "name": "Ludwig",
-      "firstSurname": "Beethoven",
+      "name": "Isaac",
+      "firstSurname": "Newton",
       "userType": "Professional",
       "secondSurname": "",
       "gender": "Male",
@@ -139,6 +164,26 @@
       },
       "medicalBoardNumber": "23456789",
       "id": 2
+    },
+    {
+      "name": "René",
+      "firstSurname": "Favaloro",
+      "userType": "Professional",
+      "secondSurname": "",
+      "gender": "Male",
+      "birthDate": "2020-07-01T22:00:00.000Z",
+      "professionalType": "Doctor",
+      "nif": "543454323",
+      "address": {
+        "city": "El Casar",
+        "street": "c",
+        "streetNumber": "",
+        "doorNumber": "",
+        "postalCode": "19170"
+      },
+      "medicalBoardNumber": "234578909989",
+      "insurances": [],
+      "id": 3
     }
   ]
 }

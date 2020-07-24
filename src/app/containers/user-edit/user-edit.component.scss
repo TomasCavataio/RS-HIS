@@ -13,9 +13,8 @@
         }
         tr {
             display: flex;
-            .secondRow {
-                justify-content: space-evenly;
-            }
+            justify-content: space-evenly;
+            align-items: center;
         }
         .save:active {
             color: green;

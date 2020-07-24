@@ -75,7 +75,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   verifyUser(userType: string): void {
-    if (userType === 'patient') {
+    if (userType === 'Patient') {
       this.isPatient = true;
     } else {
       this.isPatient = false;

@@ -21,8 +21,10 @@ export class UsersListComponent implements OnInit {
   tab = true;
   professionalsData: MatTableDataSource<User>;
   patientsData: MatTableDataSource<User>;
-  displayedColumns: string[] = ['position', 'name', 'surname', 'chn', 'edit', 'delete'];
-  secondTableColumns: string[] = ['position', 'name', 'surname', 'medicalNumber', 'edit', 'delete'];
+  usersData: MatTableDataSource<User>;
+  userColumns: string[] = ['name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'surname', 'chn', 'edit', 'delete'];
+  secondTableColumns: string[] = ['name', 'surname', 'medicalNumber', 'edit', 'delete'];
 
   @Input() user: User;
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
@@ -30,14 +32,12 @@ export class UsersListComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(data => {
+    this.userService.getUsers().subscribe((data: User[][]) => {
       this.userService.userSubject.next(data);
       this.users = this.userService.user$;
       this.getPatients(data);
-      this.professionalsData = new MatTableDataSource<User>(this.getProfessionals(data));
-      this.patientsData = new MatTableDataSource<User>(this.getPatients(data));
-      this.patientsData.paginator = this.paginator.toArray()[0];
-      this.professionalsData.paginator = this.paginator.toArray()[1];
+      this.setTablesData(data);
+      this.setPaginators();
       this.userService.showSpinner = false;
     });
     this.userService.toggleSpinner();
@@ -57,6 +57,16 @@ export class UsersListComponent implements OnInit {
         this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
       }
     });
+  }
+
+  getUsers(data): User[] {
+    const users: User[] = [];
+    for (const types of data) {
+      for (const user of types) {
+        users.push(user);
+      }
+    }
+    return users;
   }
 
   getPatients(users): User[] {
@@ -93,8 +103,21 @@ export class UsersListComponent implements OnInit {
 
   findUser(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
+    this.usersData.filter = filterValue.trim().toLowerCase();
     this.patientsData.filter = filterValue.trim().toLowerCase();
     this.professionalsData.filter = filterValue.trim().toLowerCase();
+  }
+
+  setPaginators(): void {
+    this.usersData.paginator = this.paginator.toArray()[0];
+    this.patientsData.paginator = this.paginator.toArray()[1];
+    this.professionalsData.paginator = this.paginator.toArray()[2];
+  }
+
+  setTablesData(data): void {
+    this.usersData = new MatTableDataSource<User>(this.getUsers(data));
+    this.professionalsData = new MatTableDataSource<User>(this.getProfessionals(data));
+    this.patientsData = new MatTableDataSource<User>(this.getPatients(data));
   }
 
 }

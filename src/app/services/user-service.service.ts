@@ -51,6 +51,7 @@ export class UserService {
     return this.http.delete<User>(`${this.url}/${endPoint}/${id}`);
   }
 
+  // Deletes all professionals of type Doctor
   deleteDoctors(): void {
     this.getProfessionals().subscribe((data) => {
       const doctors: Professional[] = data.filter(
@@ -61,15 +62,22 @@ export class UserService {
         doctorObservables.push(this.deleteUser(doctor.id, 'professionals'));
       }
       forkJoin(doctorObservables).subscribe(
-        () =>
-          this.getUsers().subscribe(console.log),
+        () => {
+          this.getUsers().subscribe();
+          location.reload();
+        },
         (error) => console.error(error)
       );
     });
   }
 
   addUser(user): Observable<User> {
-    return this.http.post<User>(`${this.url}/`, user);
+    if (user.nhc) {
+      return this.http.post<User>(`${this.url}/patients`, user);
+
+    } else {
+      return this.http.post<User>(`${this.url}/professionals`, user);
+    }
   }
 
   editUser(user): Observable<User> {

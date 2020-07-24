@@ -2,7 +2,6 @@
     text-align: center;
     .container {
         height: 55vh;
-        margin-left: 5%;
         table {
             .matTab {
                 max-width: 90vw;
@@ -80,6 +79,9 @@
 @media (max-width: 450px) {
     mat-card {
         margin-top: 5%;
+    }
+    .form-container {
+        min-height: 35vh;
     }
     .data {
         font-weight: 700;
