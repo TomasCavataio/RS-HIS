@@ -9,11 +9,12 @@
     <div class="tabGroup">
         <mat-tab-group #tabGroup>
             <mat-tab label="Users">
-                <mat-table [dataSource]="usersData" class="mat-elevation-z8">
+                <mat-table [dataSource]="usersData" class="mat-elevation-z8" matSort matSortActive="name"
+                    matSortDirection="asc">
 
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
                         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
                     </ng-container>
 
@@ -39,7 +40,8 @@
                     <ng-container matColumnDef="edit">
                         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                         <mat-cell class="edit" *matCellDef="let element">
-                            <button mat-fab color="primary" (click)="openEdit(element, 'patients')">
+                            <button mat-fab color="primary"
+                                (click)="openEdit(element, element.nhc ? 'patients' : 'professionals')">
                                 <mat-icon>edit</mat-icon>
                             </button>
                         </mat-cell>
@@ -49,14 +51,15 @@
                     <ng-container matColumnDef="delete">
                         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                            <button (click)="openRemoveDialog(element, 'patients')" mat-fab color="warn">
+                            <button (click)="openRemoveDialog(element, element.nhc ? 'patients' : 'professionals')"
+                                mat-fab color="warn">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="userColumns; sticky: true"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: userColumns"
-                        [routerLink]="[row.nhc ? 'patients' : 'professionals', row.id ]">
+                        [routerLink]="[row.nhc ? 'patients' : 'professionals', row._id ]">
                     </mat-row>
 
                 </mat-table>
@@ -65,11 +68,12 @@
             </mat-tab>
             <mat-tab label="Patients">
 
-                <mat-table [dataSource]="patientsData" class="mat-elevation-z8">
+                <mat-table [dataSource]="patientsData" class="mat-elevation-z8" matSort matSortActive="name"
+                    matSortDirection="asc">
 
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
                         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
                     </ng-container>
 
@@ -104,8 +108,8 @@
                             </button>
                         </mat-cell>
                     </ng-container>
-                    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['./patients', row.id]">
+                    <mat-header-row *matHeaderRowDef="patientColumns; sticky: true"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: patientColumns" [routerLink]="['./patients', row._id]">
                     </mat-row>
 
                 </mat-table>
@@ -113,11 +117,12 @@
                 </mat-paginator>
             </mat-tab>
             <mat-tab label="Professionals">
-                <mat-table [dataSource]="professionalsData" class="mat-elevation-z8">
+                <mat-table [dataSource]="professionalsData" class="mat-elevation-z8" matSort matSortActive="name"
+                    matSortDirection="asc">
 
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
                         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
                     </ng-container>
 
@@ -152,9 +157,9 @@
                             </button>
                         </mat-cell>
                     </ng-container>
-                    <mat-header-row *matHeaderRowDef="secondTableColumns; sticky: true"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: secondTableColumns"
-                        [routerLink]="['./professionals', row.id]"></mat-row>
+                    <mat-header-row *matHeaderRowDef="professionalColumns; sticky: true"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: professionalColumns"
+                        [routerLink]="['./professionals', row._id]"></mat-row>
 
                 </mat-table>
                 <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
@@ -162,3 +167,4 @@
             </mat-tab>
         </mat-tab-group>
     </div>
+</div>

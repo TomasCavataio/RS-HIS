@@ -29,7 +29,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   openEdit(user: User, endPoint: string): void {
-    this.router.navigate([`./users/edit/${endPoint}/${user.id}`]);
+    this.router.navigate([`./users/edit/${endPoint}/${user._id}`]);
   }
 
   getUser(): void {
@@ -39,22 +39,25 @@ export class UserDetailComponent implements OnInit {
     this.userService.getUser(id, endPoint).subscribe((data: User) => {
       this.user = data;
       this.userService.showSpinner = false;
+    }, (error: Error) => {
+      this.router.navigate(['error404']);
     });
   }
+
   openRemoveDialog(user: User, endPoint: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
-      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} with ID: ${user.id}` }
+      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} ${user.firstSurname}` }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteUser(user._id, endPoint).subscribe(() => this.router.navigate(['./users']));
       }
     });
   }
 
   deleteUser(user: User, endPoint: string): void {
-    const confirmation = confirm(`Confirm that you want ${user.name} ${user.firstSurname}, with id: ${user.id} to be deleted`);
+    const confirmation = confirm(`Confirm that you want ${user.name} ${user.firstSurname}`);
     if (confirmation) {
       this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
     }

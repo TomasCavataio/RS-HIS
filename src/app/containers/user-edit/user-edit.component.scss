@@ -25,9 +25,6 @@
 @media (max-width: 425px) {
     tr {
         flex-wrap: wrap;
-        .secondRow {
-            justify-content: flex-start !important;
-        }
     }
 
     .form-container {

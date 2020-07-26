@@ -59,7 +59,7 @@ export class UserService {
       );
       const doctorObservables: Observable<User>[] = [];
       for (const doctor of doctors) {
-        doctorObservables.push(this.deleteUser(doctor.id, 'professionals'));
+        doctorObservables.push(this.deleteUser(doctor._id, 'professionals'));
       }
       forkJoin(doctorObservables).subscribe(
         () => {
@@ -82,9 +82,9 @@ export class UserService {
 
   editUser(user): Observable<User> {
     if (user.nhc) {
-      return this.http.put<User>(`${this.url}/patients/${user.id}`, user);
+      return this.http.put<User>(`${this.url}/patients/${user._id}`, user);
     } else {
-      return this.http.put<User>(`${this.url}/professionals/${user.id}`, user);
+      return this.http.put<User>(`${this.url}/professionals/${user._id}`, user);
     }
   }
 

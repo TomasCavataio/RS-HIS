@@ -32,7 +32,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TitleCasePipe } from '@angular/common';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Error404Component } from './components/error404/error404.component';
-
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -69,7 +69,8 @@ import { Error404Component } from './components/error404/error404.component';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatSortModule
   ],
   providers: [UserService, TitleCasePipe],
   bootstrap: [AppComponent]

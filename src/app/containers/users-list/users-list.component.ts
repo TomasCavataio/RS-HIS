@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatSort } from '@angular/material/sort';
 import { Patient } from 'src/app/models/patient';
 
 @Component({
@@ -18,16 +18,17 @@ import { Patient } from 'src/app/models/patient';
 })
 export class UsersListComponent implements OnInit {
   users: Observable<User[][]>;
-  tab = true;
   professionalsData: MatTableDataSource<User>;
   patientsData: MatTableDataSource<User>;
   usersData: MatTableDataSource<User>;
   userColumns: string[] = ['name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
-  displayedColumns: string[] = ['name', 'surname', 'chn', 'edit', 'delete'];
-  secondTableColumns: string[] = ['name', 'surname', 'medicalNumber', 'edit', 'delete'];
+  patientColumns: string[] = ['name', 'surname', 'chn', 'edit', 'delete'];
+  professionalColumns: string[] = ['name', 'surname', 'medicalNumber', 'edit', 'delete'];
+  currentDisplay = 'desktop';
 
   @Input() user: User;
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
+  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
 
@@ -38,9 +39,13 @@ export class UsersListComponent implements OnInit {
       this.getPatients(data);
       this.setTablesData(data);
       this.setPaginators();
+      this.setSorts();
       this.userService.showSpinner = false;
     });
     this.userService.toggleSpinner();
+    if (screen.width < 426) {
+      this.currentDisplay = 'mobile';
+    }
   }
 
   getShowSpinner(): boolean {
@@ -50,11 +55,11 @@ export class UsersListComponent implements OnInit {
   openRemoveDialog(user: User, endPoint: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
-      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} with ID: ${user.id}` }
+      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} ${user.firstSurname}` }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteUser(user._id, endPoint).subscribe(() => this.router.navigate(['./users']));
       }
     });
   }
@@ -94,7 +99,7 @@ export class UsersListComponent implements OnInit {
   }
 
   openEdit(user: User, endPoint: string): void {
-    this.router.navigate([`./users/edit/${endPoint}/${user.id}`]);
+    this.router.navigate([`./users/edit/${endPoint}/${user._id}`]);
   }
 
   deleteUser(id: string, endPoint: string): void {
@@ -118,6 +123,12 @@ export class UsersListComponent implements OnInit {
     this.usersData = new MatTableDataSource<User>(this.getUsers(data));
     this.professionalsData = new MatTableDataSource<User>(this.getProfessionals(data));
     this.patientsData = new MatTableDataSource<User>(this.getPatients(data));
+  }
+
+  setSorts(): void {
+    this.usersData.sort = this.sort.toArray()[0];
+    this.patientsData.sort = this.sort.toArray()[1];
+    this.professionalsData.sort = this.sort.toArray()[2];
   }
 
 }

@@ -30,7 +30,10 @@ export class UserEditComponent implements OnInit {
     this.userService.getUser(id, endPoint).subscribe((data: User) => {
       this.user = data;
       this.userService.showSpinner = false;
-    });
+    }, (error: Error) => {
+      this.router.navigate(['error404']);
+    }
+    );
   }
 
   editUser(user: User): void {
