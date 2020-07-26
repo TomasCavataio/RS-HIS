@@ -5,10 +5,12 @@ import { UserCreateComponent } from './containers/user-create/user-create.compon
 import { UsersListComponent } from './containers/users-list/users-list.component';
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { Error404Component } from './components/error404/error404.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersListComponent },
   { path: 'users/new', component: UserCreateComponent },
   { path: 'users/edit/:endPoint/:id', component: UserEditComponent },

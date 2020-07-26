@@ -1,0 +1,32 @@
+@import "src/assets/sass/colors";
+
+.container {
+    text-align: center;
+    margin-top: 10vh;
+    padding: 5%;
+    border-radius: 35px;
+    .title {
+        h1 {
+            font-size: xxx-large;
+            text-shadow: 2px 2px white;
+        }
+    }
+    .buttons {
+        height: 8vh;
+        display: flex;
+        justify-content: space-evenly;
+        mat-icon {
+            padding: 5%;
+        }
+    }
+}
+
+.visible {
+    transition: 1s;
+    opacity: 1;
+}
+
+.invisible {
+    transition: 1s;
+    opacity: 0;
+}

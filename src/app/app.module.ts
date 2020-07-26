@@ -33,6 +33,7 @@ import { TitleCasePipe } from '@angular/common';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Error404Component } from './components/error404/error404.component';
 import { MatSortModule } from '@angular/material/sort';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatSortModule } from '@angular/material/sort';
     UserEditComponent,
     DialogComponent,
     SpinnerComponent,
-    Error404Component
+    Error404Component,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

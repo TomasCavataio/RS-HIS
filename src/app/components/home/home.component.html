@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="title">
+        <h1>Ribera Salud</h1>
+        <h1>Hospital Information System</h1>
+    </div>
+    <div class="logo" [className]="isWelcome ? 'invisible' : 'visible'">
+        <img src="../../../assets/logo.png" alt="">
+
+        <div class="buttons">
+            <button color="primary" mat-raised-button [routerLink]="'../users/new'">
+                Add New User
+                <mat-icon>person_add </mat-icon>
+            </button>
+            <button color="primary" mat-raised-button [routerLink]="'../users'">
+                Users List
+                <mat-icon>list </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
