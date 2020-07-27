@@ -10,12 +10,14 @@ import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { Patient } from 'src/app/models/patient';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  styleUrls: ['./users-list.component.scss'],
 })
+
 export class UsersListComponent implements OnInit {
   users: Observable<User[][]>;
   professionalsData: MatTableDataSource<User>;
@@ -24,13 +26,12 @@ export class UsersListComponent implements OnInit {
   userColumns: string[] = ['name', 'surname', 'chn', 'medicalNumber', 'edit', 'delete'];
   patientColumns: string[] = ['name', 'surname', 'chn', 'edit', 'delete'];
   professionalColumns: string[] = ['name', 'surname', 'medicalNumber', 'edit', 'delete'];
-  currentDisplay = 'desktop';
 
   @Input() user: User;
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
   @ViewChildren(MatSort) sort = new QueryList<MatSort>();
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) { }
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((data: User[][]) => {
@@ -43,9 +44,6 @@ export class UsersListComponent implements OnInit {
       this.userService.showSpinner = false;
     });
     this.userService.toggleSpinner();
-    if (screen.width < 426) {
-      this.currentDisplay = 'mobile';
-    }
   }
 
   getShowSpinner(): boolean {
@@ -59,8 +57,20 @@ export class UsersListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteUser(user._id, endPoint).subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteUser(user._id, endPoint).subscribe(() => {
+          this.router.navigate(['./users']);
+          this.openSnackBar('Deleted Successfully');
+        });
       }
+    });
+  }
+
+  openSnackBar(message: string): void {
+    const snackRef = this.snackbar.open(message, 'Close', {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: ['delete-snackbar']
     });
   }
 

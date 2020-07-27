@@ -49,8 +49,8 @@
                         </td>
                         <td>
                             <mat-form-field appearance="outline">
-                                <mat-label>Birthday</mat-label>
-                                <input matInput [max]="maxDate" [value]="user.birthDate | date: 'MM/dd/yyyy'"
+                                <mat-label>Birthdate</mat-label>
+                                <input (click)="birthDate.open()" matInput [max]="maxDate" [value]="user.birthDate"
                                     name="birthDate" [(ngModel)]="user.birthDate" [matDatepicker]="birthDate">
                                 <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
                                 <mat-datepicker #birthDate></mat-datepicker>

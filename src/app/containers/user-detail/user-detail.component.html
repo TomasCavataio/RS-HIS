@@ -15,14 +15,14 @@
                 <tr class="dataHeader">
                     <td>Name</td>
                     <td>Surname</td>
-                    <td *ngIf="user.secondSurname != ''">Second Surname</td>
-                    <td>Gender</td>
-                    <td>Birth-Day</td>
+                    <td *ngIf="user.secondSurname">Second Surname</td>
+                    <td *ngIf="user.gender">Gender</td>
+                    <td *ngIf="user.birthDate">Birthdate</td>
                 </tr>
                 <tr class="data">
                     <td>{{user.name}}</td>
                     <td>{{user.firstSurname}}</td>
-                    <td *ngIf="user.secondSurname != ''">{{user.secondSurname}}</td>
+                    <td *ngIf="user.secondSurname">{{user.secondSurname}}</td>
                     <td>{{user.gender}}</td>
                     <td>{{user.birthDate | date: "MM/dd/yyyy"}}</td>
                 </tr>

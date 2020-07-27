@@ -31,27 +31,23 @@ export class UserService {
     return forkJoin(users);
   }
 
-  // Returns all professionals as an array of Observables.
   getProfessionals(): Observable<Professional[]> {
     return this.http.get<Professional[]>(`${this.url}/professionals`);
   }
 
-  // Returns all patients as an array of Observables.
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(`${this.url}/patients`);
   }
 
-  // Returns a specific user so you can go into it's details
   getUser(id: string, endPoint: string): Observable<User> {
     return this.http.get<User>(`${this.url}/${endPoint}/${id}`);
   }
 
-  // Deletes a specific user
   deleteUser(id: string, endPoint: string): Observable<User> {
     return this.http.delete<User>(`${this.url}/${endPoint}/${id}`);
   }
 
-  // Deletes all professionals of type Doctor
+  // Waits until all delete requests are pushed and then executes forkJoin(similar to PromiseAll)
   deleteDoctors(): void {
     this.getProfessionals().subscribe((data) => {
       const doctors: Professional[] = data.filter(

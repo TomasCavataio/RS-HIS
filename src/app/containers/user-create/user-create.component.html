@@ -35,7 +35,8 @@
                     <div class="row">
                         <mat-form-field appearance="outline">
                             <mat-label>Birth Date</mat-label>
-                            <input formControlName="birthDate" [max]="maxDate" matInput [matDatepicker]="birthDate">
+                            <input (click)="birthDate.open()" formControlName="birthDate" [max]="maxDate" matInput
+                                [matDatepicker]="birthDate">
                             <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
                             <mat-datepicker #birthDate></mat-datepicker>
                         </mat-form-field>

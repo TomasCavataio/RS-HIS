@@ -34,6 +34,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Error404Component } from './components/error404/error404.component';
 import { MatSortModule } from '@angular/material/sort';
 import { HomeComponent } from './components/home/home.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { HomeComponent } from './components/home/home.component';
     DialogComponent,
     SpinnerComponent,
     Error404Component,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,8 @@ import { HomeComponent } from './components/home/home.component';
     MatCheckboxModule,
     MatPaginatorModule,
     Ng2SearchPipeModule,
-    MatSortModule
+    MatSortModule,
+    MatSnackBarModule
   ],
   providers: [UserService, TitleCasePipe],
   bootstrap: [AppComponent]

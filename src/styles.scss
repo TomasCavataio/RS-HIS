@@ -32,3 +32,19 @@ body {
         color-stop(0.86, rgb(28, 58, 148))
     );
 }
+
+.delete-snackbar {
+    background-color: $deleteLabel;
+    color: white;
+    span.mat-button-wrapper {
+        color: black;
+    }
+}
+
+.success-snackbar {
+    background-color: $success;
+    color: white;
+    span.mat-button-wrapper {
+        color: black;
+    }
+}

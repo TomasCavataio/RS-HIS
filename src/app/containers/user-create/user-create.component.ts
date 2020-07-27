@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormArray } fr
 import { ErrorStateMatcher } from '@angular/material/core';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { User } from 'src/app/models/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-create',
@@ -28,7 +29,9 @@ export class UserCreateComponent implements OnInit {
   user = {};
   isMobile = false;
 
-  constructor(private http: HttpClient, private userService: UserService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(
+    private http: HttpClient, private userService: UserService,
+    private router: Router, private formBuilder: FormBuilder, public snackbar: MatSnackBar) {
 
   }
 
@@ -42,6 +45,15 @@ export class UserCreateComponent implements OnInit {
 
   getShowSpinner(): boolean {
     return this.userService.showSpinner;
+  }
+
+  openSnackBar(message: string): void {
+    const snackRef = this.snackbar.open(message, 'Close', {
+      duration: 3500,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: ['success-snackbar']
+    });
   }
 
   createForm(): void {
@@ -109,7 +121,10 @@ export class UserCreateComponent implements OnInit {
   addUser(): void {
     this.validateUSer();
     this.getUser();
-    this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
+    this.userService.addUser(this.user).subscribe(() => {
+      this.router.navigate(['/users']);
+      this.openSnackBar('User Created Successfully');
+    });
   }
 
 }

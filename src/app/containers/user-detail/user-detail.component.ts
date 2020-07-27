@@ -7,6 +7,7 @@ import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Patient } from 'src/app/models/patient';
 import { Professional } from 'src/app/models/professional';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,7 +18,9 @@ import { Professional } from 'src/app/models/professional';
 export class UserDetailComponent implements OnInit {
   user: User | Patient | Professional;
 
-  constructor(private userService: UserService, public route: ActivatedRoute, private router: Router, public dialog: MatDialog) { }
+  constructor(
+    private userService: UserService, public route: ActivatedRoute,
+    private router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -51,15 +54,29 @@ export class UserDetailComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.userService.deleteUser(user._id, endPoint).subscribe(() => this.router.navigate(['./users']));
+        this.userService.deleteUser(user._id, endPoint).subscribe(() => {
+          this.router.navigate(['./users']);
+          this.openSnackBar('Deleted Successfully');
+        });
       }
+    });
+  }
+
+  openSnackBar(message: string): void {
+    const snackRef = this.snackbar.open(message, 'Close', {
+      duration: 3500,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      panelClass: ['delete-snackbar']
     });
   }
 
   deleteUser(user: User, endPoint: string): void {
     const confirmation = confirm(`Confirm that you want ${user.name} ${user.firstSurname}`);
     if (confirmation) {
-      this.userService.deleteUser(user.id, endPoint).subscribe(() => this.router.navigate(['./users']));
+      this.userService.deleteUser(user._id, endPoint).subscribe(() =>
+        this.router.navigate(['./users']
+        ));
     }
   }
 }

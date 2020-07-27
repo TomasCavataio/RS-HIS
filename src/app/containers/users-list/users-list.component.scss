@@ -9,6 +9,7 @@
     }
     mat-table {
         max-height: 60vh;
+        min-height: 60vh;
         overflow: auto;
         mat-header-cell {
             width: 100%;
@@ -27,6 +28,10 @@
                 color: black;
                 cursor: default;
             }
+        }
+        td {
+            padding: 1em;
+            width: 100vw;
         }
         mat-row {
             min-width: fit-content;
