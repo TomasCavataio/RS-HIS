@@ -75,7 +75,9 @@
         justify-content: space-evenly;
     }
 }
-
+.card-container {
+    margin-top: 5vh;
+}
 @media (max-width: 450px) {
     mat-card {
         margin-top: 5%;

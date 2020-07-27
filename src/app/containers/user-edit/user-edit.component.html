@@ -1,8 +1,8 @@
-<mat-card class="detail-card" *ngIf="user">
+<mat-card class="detail-card card-container" *ngIf="user">
     <form>
         <mat-card-header>
             <div class="header">
-                <mat-card-title>{{user.name}}, {{user.firstSurname}}</mat-card-title>
+                <mat-card-title>{{user.name}} {{user.firstSurname}}</mat-card-title>
             </div>
         </mat-card-header>
         <app-spinner *ngIf="getShowSpinner()"></app-spinner>
