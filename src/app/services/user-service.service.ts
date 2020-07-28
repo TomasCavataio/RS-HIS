@@ -4,20 +4,19 @@ import { User } from '../models/user';
 import { Patient } from '../models/patient';
 import { Professional } from '../models/professional';
 import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost:3000';
+  private url = 'http://192.168.1.110:3000';
   userSubject = new BehaviorSubject<User[][]>([]);
   user$ = this.userSubject.asObservable();
   users: User[];
   showSpinner = true;
   searchText: string;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   toggleSpinner(): void {
     this.showSpinner = true;

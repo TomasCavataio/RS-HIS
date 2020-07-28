@@ -9,7 +9,7 @@
             <mat-icon>person_add </mat-icon>
         </button>
         <button *ngIf="router.url == '/error404'" color="primary" mat-fab [routerLink]="'users/'">
-            <mat-icon>home </mat-icon>
+            <mat-icon>list </mat-icon>
         </button>
         <label *ngIf="router.url == '/users' && !mobile" class="multipleDelete"> Delete Doctors
             <button mat-fab color="warn" (click)="openRemoveDialog()">

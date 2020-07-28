@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { UserService } from 'src/app/services/user-service.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -11,14 +11,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   mobile = false;
 
   constructor(private userService: UserService, public router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  ngOnChanges(): void {
     if (window.screen.width <= 425) {
       this.mobile = true;
+    } else {
+      this.mobile = false;
+
     }
   }
 

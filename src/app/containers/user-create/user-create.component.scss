@@ -6,6 +6,11 @@
     form {
         overflow: auto;
         text-align: center;
+        margin-top: 5vh;
+        mat-horizontal-stepper {
+            border-radius: 22px;
+            margin: 0 1%;
+        }
         .row {
             display: flex;
             justify-content: space-evenly;
@@ -17,6 +22,9 @@
         ::ng-deep .mat-horizontal-stepper-header {
             pointer-events: none !important;
         }
+    }
+    .submitButton {
+        margin-bottom: 1em;
     }
 }
 

@@ -26,14 +26,14 @@
 
                     <!-- Medical Clinic History Number -->
                     <ng-container matColumnDef="chn">
-                        <mat-header-cell *matHeaderCellDef> CHN </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.nhc}} </mat-cell>
+                        <mat-header-cell class="hide" *matHeaderCellDef> CHN </mat-header-cell>
+                        <mat-cell class="hide" *matCellDef="let element"> {{element.nhc}} </mat-cell>
                     </ng-container>
 
                     <!-- Medical board number Column -->
                     <ng-container matColumnDef="medicalNumber">
-                        <mat-header-cell *matHeaderCellDef> Medical Board Number </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.medicalBoardNumber}} </mat-cell>
+                        <mat-header-cell class="hide" *matHeaderCellDef> Medical Board Number </mat-header-cell>
+                        <mat-cell class="hide" *matCellDef="let element"> {{element.medicalBoardNumber}} </mat-cell>
                     </ng-container>
 
                     <!-- Edit Option -->
@@ -51,8 +51,9 @@
                     <ng-container matColumnDef="delete">
                         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                            <button (click)="openRemoveDialog(element, element.nhc ? 'patients' : 'professionals')"
-                                mat-fab color="warn">
+                            <button [routerLink]="['/users']"
+                                (click)="openRemoveDialog(element, element.nhc ? 'patients' : 'professionals')" mat-fab
+                                color="warn">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </mat-cell>
@@ -63,13 +64,13 @@
                     </mat-row>
 
                     <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="6" *ngIf="usersData.data.length && userFilter.value">
+                        <td class="mat-cell no-results" colspan="6" *ngIf="usersData.data.length && userFilter.value">
                             No users matching the filter "{{ userFilter.value }}".
                         </td>
                     </tr>
 
                 </mat-table>
-                <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+                <mat-paginator class="mat-paginator-sticky" [pageSize]="4" [pageSizeOptions]="[4, 10, 25, 100]">
                 </mat-paginator>
             </mat-tab>
             <mat-tab label="Patients">
@@ -91,8 +92,8 @@
 
                     <!-- Medical Clinic History Number -->
                     <ng-container matColumnDef="chn">
-                        <mat-header-cell *matHeaderCellDef> CHN </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.nhc}} </mat-cell>
+                        <mat-header-cell class="hide" *matHeaderCellDef> CHN </mat-header-cell>
+                        <mat-cell class="hide" *matCellDef="let element"> {{element.nhc}} </mat-cell>
                     </ng-container>
 
                     <!-- Edit Option -->
@@ -119,13 +120,14 @@
                     </mat-row>
 
                     <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="6" *ngIf="patientsData.data.length && userFilter.value">
+                        <td class="mat-cell no-results" colspan="6"
+                            *ngIf="patientsData.data.length && userFilter.value">
                             No patients matching the filter "{{ userFilter.value }}".
                         </td>
                     </tr>
 
                 </mat-table>
-                <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+                <mat-paginator class="mat-paginator-sticky" [pageSize]="4" [pageSizeOptions]="[4, 10, 25, 100]">
                 </mat-paginator>
             </mat-tab>
             <mat-tab label="Professionals">
@@ -146,8 +148,8 @@
 
                     <!-- Medical board nymber Column -->
                     <ng-container matColumnDef="medicalNumber">
-                        <mat-header-cell *matHeaderCellDef> Medical Board Number </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.medicalBoardNumber}} </mat-cell>
+                        <mat-header-cell class="hide" *matHeaderCellDef> Medical Board Number </mat-header-cell>
+                        <mat-cell class="hide" *matCellDef="let element"> {{element.medicalBoardNumber}} </mat-cell>
                     </ng-container>
 
                     <!-- Edit Option -->
@@ -174,13 +176,13 @@
                         [routerLink]="['./professionals', row._id]"></mat-row>
 
                     <tr class="mat-row" *matNoDataRow>
-                        <td class="mat-cell" colspan="6" *ngIf="usersData.data.length && userFilter.value">
+                        <td class="mat-cell no-results" colspan="6" *ngIf="usersData.data.length && userFilter.value">
                             No professionals matching the filter "{{ userFilter.value }}".
                         </td>
                     </tr>
 
                 </mat-table>
-                <mat-paginator class="mat-paginator-sticky" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+                <mat-paginator class="mat-paginator-sticky" [pageSize]="4" [pageSizeOptions]="[4, 10, 25, 100]">
                 </mat-paginator>
             </mat-tab>
         </mat-tab-group>

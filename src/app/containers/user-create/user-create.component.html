@@ -65,7 +65,7 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -100,8 +100,8 @@
                         </mat-form-field>
                     </div>
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-stroked-button color="accent" matStepperPrevious>Back</button>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -153,8 +153,8 @@
                     </div>
 
                     <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
+                        <button mat-stroked-button color="accent" matStepperPrevious>Back</button>
+                        <button mat-stroked-button color="primary" matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
@@ -163,13 +163,13 @@
                 <h2 class="doneMessage"
                     [hidden]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoardNumber.pristine || medicalForm.controls.medicalBoardNumber.invalid))">
                     You are now done.</h2>
-                <div>
+                <div class="submitButton">
                     <button mat-raised-button
                         [disabled]="userForm.pristine || userForm.invalid || ((medicalForm.controls.nhc.pristine || medicalForm.controls.nhc.invalid) && (medicalForm.controls.medicalBoardNumber.pristine || medicalForm.controls.medicalBoardNumber.invalid))"
                         color="primary" type="submit">Create User <mat-icon> add</mat-icon></button>
                 </div>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-stroked-button color="accent" matStepperPrevious>Back</button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>

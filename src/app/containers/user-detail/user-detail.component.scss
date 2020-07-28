@@ -11,13 +11,7 @@
             }
         }
     }
-    .detail-card {
-        width: 70%;
-        position: absolute;
-        top: 15%;
-        left: 15%;
-        text-align: center;
-    }
+
     .header {
         text-align: center;
         width: 100%;
@@ -29,6 +23,7 @@
         display: grid;
         .dataHeader {
             display: grid;
+            font-weight: 500;
             grid-template-columns: repeat(5, 1fr);
         }
         .data {
@@ -40,6 +35,7 @@
         display: grid;
         .dataHeader {
             display: grid;
+            font-weight: 500;
             grid-template-columns: repeat(4, 1fr);
         }
         .data {
@@ -51,6 +47,7 @@
         display: grid;
         .dataHeader {
             display: grid;
+            font-weight: 500;
             grid-template-columns: repeat(3, 1fr);
         }
         .data {
@@ -62,6 +59,7 @@
         display: grid;
         .dataHeader {
             display: grid;
+            font-weight: 500;
             grid-template-columns: repeat(2, 1fr);
         }
         .data {
@@ -76,7 +74,8 @@
     }
 }
 .card-container {
-    margin-top: 5vh;
+    margin: 5vh 1% 0 1%;
+    border-radius: 22px;
 }
 @media (max-width: 450px) {
     mat-card {
@@ -85,7 +84,7 @@
     .form-container {
         min-height: 35vh;
     }
-    .data {
+    .dataHeader {
         font-weight: 700;
     }
     .userData {

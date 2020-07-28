@@ -1,40 +1,30 @@
 @import "src/assets/sass/colors";
 
 .container {
-    overflow: auto;
     width: 100%;
     margin: auto;
     .tabGroup {
+        margin: 0 1%;
+        border-radius: 22px;
         background-color: white;
     }
+
     mat-table {
-        max-height: 60vh;
-        min-height: 60vh;
+        max-height: 55vh;
+        min-height: 55vh;
         overflow: auto;
         mat-header-cell {
-            width: 100%;
+            font-size: initial;
             display: flex;
             justify-content: center;
-            font-size: initial;
-            min-width: 7em;
-            border-width: 0;
-            border-bottom-width: 1px;
-            border-style: solid;
-            position: sticky;
-            background-color: white;
+            color: $primary;
             &:hover {
                 transition: 0.8s;
                 font-size: large;
-                color: black;
                 cursor: default;
             }
         }
-        td {
-            padding: 1em;
-            width: 100vw;
-        }
         mat-row {
-            min-width: fit-content;
             &:focus {
                 outline: $primary solid 3px;
             }
@@ -42,9 +32,6 @@
                 background-color: $listHover;
             }
             mat-cell {
-                margin: 0 1%;
-                min-width: 7em;
-                text-align: center;
                 justify-content: center;
                 &:hover {
                     transition: 0.8s;
@@ -59,15 +46,25 @@
                 padding: 5px;
             }
         }
+        .no-results {
+            width: 100vw;
+            padding: 1em;
+        }
     }
-
-    .mat-paginator-sticky {
+    mat-paginator {
         bottom: 0px;
         position: sticky;
+        border-radius: 0 0 22px 22px;
     }
 }
 
 .filter {
     width: 90%;
     margin: 0 5%;
+}
+
+@media (max-width: 425px) {
+    .hide {
+        display: none !important;
+    }
 }
