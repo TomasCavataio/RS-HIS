@@ -35,6 +35,7 @@ import { Error404Component } from './components/error404/error404.component';
 import { MatSortModule } from '@angular/material/sort';
 import { HomeComponent } from './components/home/home.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SpinnerComponent,
     Error404Component,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

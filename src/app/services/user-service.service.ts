@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
+import { UserAccount } from '../models/user-account';
 import { Patient } from '../models/patient';
 import { Professional } from '../models/professional';
-import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
+import { Observable, BehaviorSubject, forkJoin, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,13 @@ export class UserService {
     } else {
       return this.http.put<User>(`${this.url}/professionals/${user._id}`, user);
     }
+  }
+
+  login(userAccount: UserAccount): Observable<UserAccount> {
+    const result = this.http.post<UserAccount>(`${this.url}/login`, userAccount);
+    result.subscribe(data => console.log(data));
+    return result;
+
   }
 
 }

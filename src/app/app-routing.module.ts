@@ -6,10 +6,12 @@ import { UsersListComponent } from './containers/users-list/users-list.component
 import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { Error404Component } from './components/error404/error404.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'users', component: UsersListComponent },
   { path: 'users/new', component: UserCreateComponent },
