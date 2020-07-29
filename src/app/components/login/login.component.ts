@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/services/user-service.service';
-import { UserAccount } from 'src/app/models/user-account';
+import { UserAccount, LoginResponse } from 'src/app/models/user-account';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserAccount } from 'src/app/models/user-account';
 export class LoginComponent implements OnInit {
   error: string | null;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
@@ -22,7 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(userAccount: UserAccount): void {
-    this.userService.login(userAccount);
+    this.userService.login(userAccount).subscribe((data) => {
+      this.router.navigate(['./home']);
+      localStorage.setItem('token', data.token);
+    });
   }
 
 

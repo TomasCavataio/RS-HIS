@@ -7,16 +7,17 @@ import { UserEditComponent } from './containers/user-edit/user-edit.component';
 import { Error404Component } from './components/error404/error404.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'users', component: UsersListComponent },
-  { path: 'users/new', component: UserCreateComponent },
-  { path: 'users/edit/:endPoint/:id', component: UserEditComponent },
-  { path: 'users/:endPoint/:id', component: UserDetailComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
+  { path: 'users/new', component: UserCreateComponent, canActivate: [AuthGuard] },
+  { path: 'users/edit/:endPoint/:id', component: UserEditComponent, canActivate: [AuthGuard] },
+  { path: 'users/:endPoint/:id', component: UserDetailComponent, canActivate: [AuthGuard] },
   { path: 'error404', component: Error404Component },
   { path: '**', redirectTo: 'error404' }
 ];
