@@ -20,6 +20,10 @@
             color: green;
         }
     }
+    .auto {
+        overflow-y: auto;
+        height: 35vh;
+    }
 }
 
 @media (max-width: 425px) {
