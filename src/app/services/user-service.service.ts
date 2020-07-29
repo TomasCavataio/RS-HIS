@@ -9,7 +9,7 @@ import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://192.168.1.110:3000';
+  private url = 'http://localhost:3000';
   userSubject = new BehaviorSubject<User[][]>([]);
   user$ = this.userSubject.asObservable();
   users: User[];
