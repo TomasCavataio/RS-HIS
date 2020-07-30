@@ -53,7 +53,7 @@ export class UsersListComponent implements OnInit {
   openRemoveDialog(user: User, endPoint: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '300px',
-      data: { title: `Confirm deletion`, body: `Are your sure you want to delete the user ${user.name} ${user.firstSurname}` }
+      data: { title: `Confirm Deletion`, body: `Are your sure you want to delete the user ${user.name} ${user.firstSurname}` }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
