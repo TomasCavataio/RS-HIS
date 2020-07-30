@@ -30,4 +30,7 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
+  register(userAccount: UserAccount): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.url}/register`, userAccount);
+  }
 }

@@ -1,6 +1,6 @@
-<div class="navbar" *ngIf="!(router.url === '/login' || router.url === '/home')">
-    <header>
-        <label *ngIf="router.url != '/error404'" class="newUser"> New User
+<div class="navbar" *ngIf="!(router.url === '/home')">
+    <header *ngIf="!(router.url === '/login')">
+        <label *ngIf=" router.url !='/error404'" class=" newUser"> New User
             <button color="primary" mat-fab [routerLink]="'users/new'">
                 <mat-icon>person_add </mat-icon>
             </button>

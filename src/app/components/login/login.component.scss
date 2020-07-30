@@ -23,6 +23,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 5vh;
+            .register {
+                cursor: pointer;
+            }
         }
         .mat-form-field {
             width: 100%;
@@ -33,6 +37,26 @@
             mat-label {
                 color: white;
             }
+        }
+    }
+}
+
+.register-container {
+    mat-card-title,
+    mat-card-content {
+        display: flex;
+        justify-content: center;
+    }
+    .register-form {
+        height: 35vh;
+        .mat-form-field {
+            width: 100%;
+            min-width: 300px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     }
 }

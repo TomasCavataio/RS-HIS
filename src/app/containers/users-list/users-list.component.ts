@@ -31,7 +31,9 @@ export class UsersListComponent implements OnInit {
   @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
   @ViewChildren(MatSort) sort = new QueryList<MatSort>();
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
+  constructor(
+    private userService: UserService, private router: Router,
+    public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((data: User[][]) => {
