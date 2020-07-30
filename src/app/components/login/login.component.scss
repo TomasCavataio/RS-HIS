@@ -1,28 +1,38 @@
+@import "src/assets/sass/colors";
+
 :host {
     display: flex;
     justify-content: center;
     margin: 100px 0px;
 }
 
-.mat-form-field {
-    width: 100%;
-    min-width: 300px;
-}
-
-mat-card-title,
-mat-card-content {
-    display: flex;
-    justify-content: center;
-}
-
-.error {
-    padding: 16px;
-    width: 300px;
+.container {
+    background-color: $secondary;
     color: white;
-    background-color: red;
-}
+    mat-card-title,
+    mat-card-content {
+        display: flex;
+        justify-content: center;
 
-.button {
-    display: flex;
-    justify-content: flex-end;
+        .button {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mat-form-field {
+            width: 100%;
+            min-width: 300px;
+            input {
+                color: white;
+            }
+            mat-label {
+                color: white;
+            }
+        }
+    }
 }

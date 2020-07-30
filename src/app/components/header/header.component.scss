@@ -21,6 +21,14 @@ header {
             margin-left: 1%;
         }
     }
+
+    .logOut {
+        position: fixed;
+        right: 12%;
+        top: 3.5%;
+        background-color: $secondary;
+        color: white;
+    }
 }
 .logo {
     position: fixed;

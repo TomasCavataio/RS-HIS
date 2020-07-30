@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HeaderComponent implements OnInit, OnChanges {
   mobile = false;
 
-  constructor(private userService: UserService, public router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
+  constructor(
+    private userService: UserService, private authService: AuthService,
+    public router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit(): void { }
 
@@ -23,7 +26,6 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.mobile = true;
     } else {
       this.mobile = false;
-
     }
   }
 
@@ -48,5 +50,10 @@ export class HeaderComponent implements OnInit, OnChanges {
         this.openSnackBar('All Doctors Have Been Successfully Deleted');
       }
     });
+  }
+
+  logOut(): void {
+    this.authService.removeToken();
+    this.router.navigate(['/login']);
   }
 }

@@ -1,27 +1,39 @@
-<mat-card>
+<mat-card class="container">
     <mat-card-title>Login</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
-            <p>
-                <mat-form-field>
-                    <input type="text" autocomplete="off" matInput placeholder="Email" required formControlName="email">
-                </mat-form-field>
-            </p>
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
 
-            <p>
-                <mat-form-field>
-                    <input type="password" matInput placeholder="Password" required formControlName="password">
-                </mat-form-field>
-            </p>
+            <mat-form-field class="form-field">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput required [errorStateMatcher]="matcher" formControlName="email" />
+                <mat-error>
+                    <span *ngIf="
+                        !loginForm.get('email').valid && loginForm.get('email').touched
+                      ">Please add a valid email.</span>
+                </mat-error>
+            </mat-form-field>
 
-            <p *ngIf="error" class="error">
-                {{ error }}
-            </p>
+            <mat-form-field class="form-field">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput required [errorStateMatcher]="matcher" formControlName="password" />
+                <mat-error>
+                    <span *ngIf="
+                        !loginForm.get('password').valid &&
+                        loginForm.get('password').touched
+                      ">Please add a valid password.</span>
+                </mat-error>
+            </mat-form-field>
 
-            <div class="button">
-                <button mat-button color="primary" type="submit" mat-button>Login</button>
+            <mat-error>
+                <span *ngIf="isInvalid">Incorrect credentials. Please try again.</span>
+            </mat-error>
+
+            <div class="action-buttons">
+                <div>
+                    <a class="register">Sign Up</a>
+                </div>
+                <button type="submit" mat-raised-button color="primary">LOG IN</button>
             </div>
-
         </form>
     </mat-card-content>
 </mat-card>

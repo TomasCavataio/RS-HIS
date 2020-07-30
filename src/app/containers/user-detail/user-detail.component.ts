@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Patient } from 'src/app/models/patient';
 import { Professional } from 'src/app/models/professional';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class UserDetailComponent implements OnInit {
   user: User | Patient | Professional;
 
   constructor(
-    private userService: UserService, public route: ActivatedRoute,
+    private userService: UserService, public route: ActivatedRoute, private authService: AuthService,
     private router: Router, public dialog: MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -43,7 +44,11 @@ export class UserDetailComponent implements OnInit {
       this.user = data;
       this.userService.showSpinner = false;
     }, (error: Error) => {
-      this.router.navigate(['error404']);
+      if (this.authService.isLoggedIn()) {
+        this.router.navigate(['error404']);
+      } else {
+        this.router.navigate(['login']);
+      }
     });
   }
 

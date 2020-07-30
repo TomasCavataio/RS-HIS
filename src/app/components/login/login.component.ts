@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
-import { UserAccount, LoginResponse } from 'src/app/models/user-account';
+import { UserAccount } from 'src/app/models/user-account';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +11,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  error: string | null;
-
-  constructor(private authService: AuthService, private router: Router) { }
+  matcher = new ErrorStateMatcher();
+  isInvalid = false;
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
+
+  constructor(private authService: AuthService, private router: Router) { }
+
+
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
@@ -30,6 +33,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(userAccount).subscribe((data) => {
       this.router.navigate(['./home']);
       localStorage.setItem('token', data.token);
+    }, (error) => {
+      this.isInvalid = true;
     });
   }
 

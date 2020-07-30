@@ -19,6 +19,9 @@
         <button class="delete" *ngIf="router.url == '/users'" mat-fab color="warn" (click)="openRemoveDialog()">
             <mat-icon>delete </mat-icon>
         </button>
+        <button *ngIf="router.url === '/users'" mat-raised-button class="logOut" (click)="logOut()">
+            Log Out
+        </button>
     </header>
     <img src="../../../assets/logo.png" alt="" class="logo" srcset="">
 

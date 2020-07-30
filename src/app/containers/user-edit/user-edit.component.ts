@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -13,7 +14,9 @@ export class UserEditComponent implements OnInit {
   user: User;
   maxDate = new Date();
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router, public snackbar: MatSnackBar) { }
+  constructor(
+    private userService: UserService, private route: ActivatedRoute,
+    private router: Router, public snackbar: MatSnackBar, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -41,7 +44,11 @@ export class UserEditComponent implements OnInit {
       this.user = data;
       this.userService.showSpinner = false;
     }, (error: Error) => {
-      this.router.navigate(['error404']);
+      if (this.authService.isLoggedIn()) {
+        this.router.navigate(['error404']);
+      } else {
+        this.router.navigate(['login']);
+      }
     }
     );
   }
