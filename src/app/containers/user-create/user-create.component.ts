@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from 'src/app/services/user-service.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormArray } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';

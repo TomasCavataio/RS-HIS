@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { UserAccount, LoginResponse } from '../models/user-account';
 import { Patient } from '../models/patient';
 import { Professional } from '../models/professional';
 import { Observable, BehaviorSubject, forkJoin, from } from 'rxjs';
@@ -84,19 +83,5 @@ export class UserService {
     }
   }
 
-  login(userAccount: UserAccount): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.url}/login`, userAccount);
-  }
-
-  isLoggedIn(): boolean {
-    if (this.getToken()) {
-      return true;
-    }
-    return false;
-  }
-
-  getToken(): string {
-    return localStorage.getItem('token');
-  }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnChanges, Input, QueryList, ViewChildren } from '@angular/core';
-import { UserService } from 'src/app/services/user-service.service';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
