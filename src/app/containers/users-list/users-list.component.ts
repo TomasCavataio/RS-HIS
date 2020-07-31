@@ -3,13 +3,11 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
-import { Patient } from 'src/app/models/patient';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

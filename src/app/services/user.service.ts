@@ -9,7 +9,7 @@ import { Observable, BehaviorSubject, forkJoin, from } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private url = 'http://localhost:3000';
+  private url = 'https://secret-journey-56228.herokuapp.com';
   userSubject = new BehaviorSubject<User[][]>([]);
   user$ = this.userSubject.asObservable();
   users: User[];

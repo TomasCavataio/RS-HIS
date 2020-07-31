@@ -38,7 +38,6 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

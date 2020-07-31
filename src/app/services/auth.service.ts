@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'http://localhost:3000';
+  private url = 'https://secret-journey-56228.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 

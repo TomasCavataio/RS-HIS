@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl, NgForm, FormArray } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { User } from 'src/app/models/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -19,7 +17,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserCreateComponent implements OnInit {
   ALPHANUMERIC_TRIMMED_REGEX = '^[a-zÀ-úA-Z0-9_]+( [a-zÀ-úA-Z0-9_]+)*$';
   ALPHA_TRIMMED_REGEX = '^[a-zÀ-úA-Z_]+( [a-zÀ-úA-Z_]+)*$';
-  NIF_AND_PASSPORT_REGEX = '[A-Za-z]{3}[0-9]{6}[A-Za-z]?$|[0-9]{8}[A-Za-z]';
   userForm: FormGroup;
   medicalForm: FormGroup;
   addressForm: FormGroup;
@@ -61,16 +58,30 @@ export class UserCreateComponent implements OnInit {
       name: ['', [Validators.required, Validators.pattern(this.ALPHA_TRIMMED_REGEX)]],
       firstSurname: ['', [Validators.required, Validators.pattern(this.ALPHA_TRIMMED_REGEX)]],
       userType: ['', Validators.required],
-      secondSurname: '', gender: '', birthDate: '', professionalType: '',
+      secondSurname: ['', [Validators.pattern(this.ALPHA_TRIMMED_REGEX)]],
+      gender: '', birthDate: '', professionalType: '',
       nif: ['']
     });
     this.addressForm = this.formBuilder.group({
-      city: '', street: '', streetNumber: '', doorNumber: '', postalCode: ''
+      city: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
+      street: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
+      streetNumber: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
+      doorNumber: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
+      postalCode: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]]
     });
     this.medicalForm = this.formBuilder.group({
       nhc: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
       medicalBoardNumber: ['', [Validators.pattern(this.ALPHANUMERIC_TRIMMED_REGEX)]],
       insurances: this.formBuilder.array([])
+    });
+    this.userForm.controls['userType'].valueChanges.subscribe(selection => {
+      if (selection === 'Patient') {
+        this.medicalForm.controls['nhc'].setValidators(Validators.required);
+        this.medicalForm.controls['nhc'].updateValueAndValidity();
+      } else {
+        this.medicalForm.controls['nhc'].setValidators(null);
+        this.medicalForm.controls['nhc'].updateValueAndValidity();
+      }
     });
   }
 
@@ -92,16 +103,7 @@ export class UserCreateComponent implements OnInit {
     } else {
       this.isPatient = false;
     }
-  }
-
-  validateUSer(): void {
-    if (this.isPatient) {
-      this.userForm.removeControl('professionalType');
-      this.medicalForm.removeControl('medicalBoardNumber');
-    } else {
-      this.medicalForm.removeControl('nhc');
-      this.medicalForm.removeControl('insuranceType');
-    }
+    this.medicalForm.reset();
   }
 
   buildUser(form: FormGroup, attribute: string = ''): void {
@@ -119,7 +121,6 @@ export class UserCreateComponent implements OnInit {
   }
 
   addUser(): void {
-    this.validateUSer();
     this.getUser();
     this.userService.addUser(this.user).subscribe(() => {
       this.router.navigate(['/users']);

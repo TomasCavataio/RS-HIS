@@ -109,7 +109,7 @@
             <mat-step [stepControl]="medicalForm">
                 <form [formGroup]="medicalForm">
                     <ng-template matStepLabel>Medical & Insurance Information</ng-template>
-                    <div *ngIf="userForm.valid">
+                    <div>
                         <div class="row">
                             <mat-form-field *ngIf="!isPatient" appearance="outline">
                                 <mat-label>Medical Board Number</mat-label>
