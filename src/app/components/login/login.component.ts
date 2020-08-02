@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
 
   openRegister(templateRef): void {
     this.dialogRef = this.dialog.open(templateRef, {
-      width: '45vw',
-      height: '60vh'
+      width: '80vw',
+      height: '50vh'
     });
   }
   openSnackBar(message: string): void {

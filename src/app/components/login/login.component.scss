@@ -42,6 +42,7 @@
 }
 
 .register-container {
+    overflow: hidden;
     mat-card-title,
     mat-card-content {
         display: flex;
@@ -59,6 +60,8 @@
 
         .register-form {
             height: 35vh;
+            width: 40vw;
+            overflow: hidden;
             .mat-form-field {
                 width: 100%;
                 min-width: 300px;
