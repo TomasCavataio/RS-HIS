@@ -52,7 +52,7 @@
 
                         <mat-form-field *ngIf="!isPatient" appearance="outline">
                             <mat-label>Professional Type</mat-label>
-                            <mat-select formControlName="professionalType" #professionalType required>
+                            <mat-select formControlName="professionalType" #professionalType>
                                 <mat-option value='Doctor'>Doctor</mat-option>
                                 <mat-option value='Nurse'>Nurse</mat-option>
                                 <mat-option value='Administrative'>Administrative</mat-option>
@@ -141,7 +141,7 @@
 
                                 <mat-form-field *ngIf="isPatient" appearance="outline">
                                     <mat-label>Insurance Type</mat-label>
-                                    <mat-select formControlName="insuranceType" #insuranceType [required]="isPatient">
+                                    <mat-select formControlName="insuranceType" #insuranceType>
                                         <mat-option value='Health'>Health</mat-option>
                                         <mat-option value='Family'>Family</mat-option>
                                         <mat-option value='Dental'>Dental</mat-option>
