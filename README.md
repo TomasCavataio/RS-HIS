@@ -12,7 +12,7 @@ user: user@gmail.com
 
 password: userpassword123456789
 
-Here you can a short demo:
+Here you can see a short demo:
 
 ![Gif Demo](demoHIS.gif)
 
