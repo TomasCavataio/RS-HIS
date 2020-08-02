@@ -1,6 +1,24 @@
 # Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+This is an Angular 10.0.1. Hospital Information System, it consumes NestJS web services and its deployed on GitHubPages.
+
+## Live Demo
+
+You can try the app by clicking here: https://tomascavataio.github.io/RS-HIS/
+
+In order to login you can create your own user, or just use this one:
+
+user: user@gmail.com 
+
+password: userpassword123456789
+
+Here you can a short demo:
+
+![Gif Demo](demoHIS.gif)
+
+## Installation
+
+First of all you should run the command "npm install" in order to have all the dependencies locally.
 
 ## Development server
 
@@ -14,13 +32,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
